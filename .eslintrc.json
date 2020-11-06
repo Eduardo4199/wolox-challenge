@@ -18,5 +18,8 @@
         "react"
     ],
     "rules": {
+        "trailing-comma": 0,
+        "linebreak-style": 0,
+        "quotes": [1, "double"]
     }
 }

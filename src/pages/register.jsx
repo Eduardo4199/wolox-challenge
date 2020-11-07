@@ -12,7 +12,7 @@ export function Register(props) {
   const [states, setStates] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState();
 
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, control, errors } = useForm();
   const onSubmit = (data) => console.log(data);
 
   useEffect(() => {
@@ -21,6 +21,7 @@ export function Register(props) {
 
   useEffect(() => {
     setStates(registerService.getStates(selectedCountry));
+    console.log()
   }, [selectedCountry]);
 
   return (
@@ -32,20 +33,30 @@ export function Register(props) {
         <input name="last_name" ref={register({ required: true })} />
         Pais
         {countries.countries && (
-          <select onChange={(e) => setSelectedCountry(e.target.value)} ref={register({ required: true })}>
-            <option defaultValue>Seleccione un pais</option>
-            {countries.countries.map((country, index) => (
-              <option value={country}>{country}</option>
-            ))}
-          </select>
+          <Controller 
+            as={ ({onChange}) => 
+              <select onChange={(e) => setSelectedCountry(e.target.value)}>
+                <option defaultValue>Seleccione un pais</option>
+                {countries.countries.map((country, index) => (
+                  <option key={index} value={country}>{country}</option>
+                ))}
+              </select>
+            }
+            control={control} name="country"
+          />
         )}
         Departamento/Provincia
         {states && (
-          <select ref={register({ required: true })}>
-            {states.map((state, index) => (
-              <option value={state}>{state.state}</option>
-            ))}
-          </select>
+            <Controller
+              as={
+              <select>
+                {states.map((state, index) => (
+                  <option key={index} value={state.state}>{state.state}</option>
+                ))}
+              </select>
+              }
+              control={control} name="state"
+            />
         )}
         Email
         <input name="email" ref={register({ required: true })} />
@@ -53,6 +64,7 @@ export function Register(props) {
         <input name="phone" ref={register({ required: true })} />
         Contraseña
         <input name="password" ref={register({ required: true })} />
+        <button type="submit">Registrarse</button>
       </form>
     </Fragment>
   );

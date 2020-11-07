@@ -34,9 +34,9 @@ export function Register(props) {
         Pais
         {countries.countries && (
           <Controller 
-            as={ ({onChange}) => 
+            as={
               <select onChange={(e) => setSelectedCountry(e.target.value)}>
-                <option defaultValue>Seleccione un pais</option>
+                <option>Seleccione un pais</option>
                 {countries.countries.map((country, index) => (
                   <option key={index} value={country}>{country}</option>
                 ))}

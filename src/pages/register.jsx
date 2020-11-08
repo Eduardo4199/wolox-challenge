@@ -13,7 +13,9 @@ export function Register(props) {
   const [selectedCountry, setSelectedCountry] = useState();
 
   const { register, handleSubmit, control, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    registerService.registerUser(data);
+  };
 
   useEffect(() => {
     setCountries(registerService.getCountries);

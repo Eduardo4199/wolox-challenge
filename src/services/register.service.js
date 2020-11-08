@@ -2,10 +2,12 @@
 
 import '../json/countries.json';
 import '../json/states.json';
+import { callApi } from './service';
 
 export const registerService = {
     getCountries,
-    getStates
+    getStates,
+    registerUser
 }
 
 const countries = require('../json/countries.json');
@@ -19,4 +21,8 @@ function getCountries(){
 function getStates(country){
     let countriesStates =  states.states.filter(item => item.country == country)
     return countriesStates
+}
+
+function registerUser(params){
+    return callApi("signup","POST",params)
 }

@@ -64,7 +64,7 @@ export function Register(props) {
         Email
         <input name="email" ref={register({ required: true })} />
         Telefono
-        <input name="phone" ref={register({ required: true })} type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"/>
+        <input name="phone" ref={register({ required: true })} type="number" pattern="[0-9]"/>
         <label>Password</label>
         <Controller
           name="password"

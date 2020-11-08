@@ -1,0 +1,29 @@
+{
+    "states" : [
+        {"country" : "Argentina" , "state" : "Buenos Aires"},
+        {"country" : "Argentina" , "state" : "Entre Rios"},
+        {"country" : "Argentina" , "state" : "Cordoba"},
+        {"country" : "Argentina" , "state" : "Mendoza"},
+        {"country" : "Argentina" , "state" : "Santa Fe"},
+        {"country" : "Chile" , "state" : "Atacama"},
+        {"country" : "Chile" , "state" : "Valparaiso"},
+        {"country" : "Chile" , "state" : "Santiago"},
+        {"country" : "Chile" , "state" : "Los Rios"},
+        {"country" : "Chile" , "state" : "Los Lagos"},
+        {"country" : "Uruguay" , "state" : "Florida"},
+        {"country" : "Uruguay" , "state" : "Durazno"},
+        {"country" : "Uruguay" , "state" : "Montevideo"},
+        {"country" : "Uruguay" , "state" : "Artigas"},
+        {"country" : "Uruguay" , "state" : "Canelones"},
+        {"country" : "Brasil" , "state" : "Sao Paulo"},
+        {"country" : "Brasil" , "state" : "Distrito Federal"},
+        {"country" : "Brasil" , "state" : "Río de Janeiro"},
+        {"country" : "Brasil" , "state" : "Paraná"},
+        {"country" : "Brasil" , "state" : "Bahía"},
+        {"country" : "Bolivia" , "state" : "La Paz"},
+        {"country" : "Bolivia" , "state" : "Oruro"},
+        {"country" : "Bolivia" , "state" : "Potosí"},
+        {"country" : "Bolivia" , "state" : "Santa Cruz"},
+        {"country" : "Bolivia" , "state" : "Sucre"}
+    ]
+}

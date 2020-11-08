@@ -26,3 +26,7 @@ function getStates(country){
 function registerUser(params){
     return callApi("signup","POST",params)
 }
+
+function addUserDB(data){
+
+}

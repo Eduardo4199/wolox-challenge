@@ -7,6 +7,10 @@ export function SearchBar(props) {
         setSearchTerm(e.target.value);
     };
 
+    useEffect(()=>{
+        props.setResults(props.list);
+    }, []);
+
     useEffect(() => {
         if (searchTerm != "") {
             return props.setResults(props.list.filter((item) => item.tech.toLowerCase().includes(searchTerm.toLowerCase())));

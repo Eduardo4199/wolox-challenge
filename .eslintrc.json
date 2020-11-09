@@ -24,6 +24,7 @@
         "require-jsdoc" : 0,
         "prefer-const": 0,
         "indent": ["error", 4],
-        "max-len": ["error", { "code": 100 }]
+        "max-len": ["error", { "code": 125 }],
+        "react/prop-types": 0
     }
 }

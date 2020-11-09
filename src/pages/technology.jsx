@@ -21,7 +21,7 @@ export function Technologies() {
                 <h1>Tecnologias</h1>
                 {results &&
                     <Fragment>
-                        <SearchBar list={results} setResults={setResults}/>
+                        <SearchBar setResults={setResults} list={technologies}/>
                         {results.map((item, index) => (
                             <div key={index}>
                                 {console.log(item)}

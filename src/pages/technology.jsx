@@ -4,7 +4,7 @@ import {SearchBar} from "../components/searchBar";
 import {CheckboxFilter} from "../components/checkboxFilter";
 
 export function Technologies() {
-    const [technologies, setTechnologies] = useState();
+    const [technologies, setTechnologies] = useState([]);
     const [searchResults, setSearchResult] = useState([]);
     const [filterResults, setFilterResults] = useState([]);
     const [results, setResults] = useState([]);
@@ -23,15 +23,15 @@ export function Technologies() {
     }, [searchResults, filterResults]);
 
     const matchResults = () =>{
-        if (searchResults && !filterResults) {
+        if (searchResults.length > 0 && filterResults.length === 0) {
             console.log(searchResults);
             setResults(searchResults);
         }
-        if (filterResults && !searchResults) {
+        if (filterResults.length > 0 && searchResults.length === 0) {
             console.log(filterResults);
             setResults(filterResults);
         }
-        if (searchResults && filterResults) {
+        if (searchResults.length > 0 && filterResults.length > 0) {
             const intersection = searchResults.filter((element) => filterResults.includes(element));
             console.log(intersection);
             setResults(intersection);

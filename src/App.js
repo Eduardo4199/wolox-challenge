@@ -13,6 +13,7 @@ function App() {
             <Router>
                 <Switch>
                     <Route exact path="/Register" component={Pages.Register} />
+                    <Route exact path="/Technologies" component={Pages.Technologies}/>
                 </Switch>
             </Router>
         </div>

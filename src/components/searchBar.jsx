@@ -10,10 +10,11 @@ export function SearchBar(props) {
     };
 
     const dynamicSearch = () => {
+        console.log(searchTerm);
         if (searchTerm != "") {
             return props.setResults(props.list.filter((item) => item.tech.toLowerCase().includes(searchTerm.toLowerCase())));
         } else {
-            return props.list;
+            return props.setResults(props.list);
         }
     };
 

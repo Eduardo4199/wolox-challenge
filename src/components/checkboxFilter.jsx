@@ -1,12 +1,7 @@
-import React, {Fragment, useEffect, useState} from "react";
+import React, {Fragment, useState} from "react";
 
 export function CheckboxFilter(props) {
     const [selectedFilters, setSelectedFilters] = useState([]);
-    const [searchResult, setSearchResult] = useState([]);
-
-    useEffect(() => {
-        setSearchResult(props.techs);
-    }, [searchResult]);
 
     const manageFilter = (item) =>{
         let filters = selectedFilters;
@@ -32,7 +27,7 @@ export function CheckboxFilter(props) {
             });
             props.setResults(resultsAux);
         } else {
-            props.setResults(searchResult);
+            props.setResults(props.techs);
         }
     };
 

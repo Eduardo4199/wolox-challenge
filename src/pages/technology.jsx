@@ -13,7 +13,6 @@ export function Technologies() {
             .then((data) => {
                 setTechnologies(data);
                 setResults(data);
-                console.log(technologies);
             });
     }, []);
 
@@ -24,7 +23,7 @@ export function Technologies() {
                 {results &&
                     <Fragment>
                         <SearchBar setResults={setResults} list={technologies}/>
-                        <CheckboxFilter filters={checkboxFilters} results={results} techs={technologies} setResults={setResults}/>
+                        <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setResults}/>
                         {results.map((item, index) => (
                             <div key={index}>
                                 {console.log(item)}

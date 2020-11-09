@@ -1,1 +1,2 @@
-export {Home} from './Home';
+export {Register} from "./register";
+export {Technologies} from "./technology";

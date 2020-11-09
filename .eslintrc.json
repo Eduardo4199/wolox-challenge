@@ -20,6 +20,11 @@
     "rules": {
         "trailing-comma": 0,
         "linebreak-style": 0,
-        "quotes": [1, "double"]
+        "quotes": [1, "double"],
+        "require-jsdoc" : 0,
+        "prefer-const": 0,
+        "indent": ["error", 4],
+        "max-len": ["error", { "code": 135 }],
+        "react/prop-types": 0
     }
 }

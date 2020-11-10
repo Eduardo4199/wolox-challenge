@@ -1,51 +1,108 @@
-* {
-  box-sizing: border-box;
+@media screen and (max-width: 2000px) {
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    padding: 0%;
+  }
+  
+  .Background1 {
+    background-image: url('../Backgrounds/Bg_Header@3x.png');
+    background-color: white;
+    width: 100%;
+    height: 25%;
+    margin: 0%;
+  }
+  
+  .Background2 {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(213, 218, 241);
+    width: 100%;
+    height: 25%;
+    margin: 0%;
+  }
+  .Background2 img{
+    width: 50%;
+    height: 15%;
+  }
+
+  .Background3{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .Background4 {
+    background-image: url('../Backgrounds/Bg_Footer@3x.png');
+    background-color: white;
+    width: 100%;
+    height: 10%;
+    margin: 0%;
+  }
+
+  .Woloxer {
+    content:url("../img_woloxer@3x.png");
+  }
+
+  .WoloxHead{
+    content: url("../logo_full_color.svg");
+  }
+
+  .WoloxFooter{
+    content: url("../Ic_Wolox_Footer.svg");
+  }
+
+  .iconHour {
+    background: url('../Ic_Hour.svg');
+    height: 90px;
+    width: 90px;
+    display: block;
 }
 
-.flex-container {
-  display: flex;
-  flex-direction: column;
+.iconHour {
+  background: url('../Ic_Hour.svg');
+  height: 90px;
+  width: 90px;
+  display: block;
 }
 
-.col-1 {
-  width: 8.33%;
-}
-.col-2 {
-  width: 16.66%;
-}
-.col-3 {
-  width: 25%;
-}
-.col-4 {
-  width: 33.33%;
-}
-.col-5 {
-  width: 41.66%;
-}
-.col-6 {
-  width: 50%;
-}
-.col-7 {
-  width: 58.33%;
-}
-.col-8 {
-  width: 66.66%;
-}
-.col-9 {
-  width: 75%;
-}
-.col-10 {
-  width: 83.33%;
-}
-.col-11 {
-  width: 91.66%;
-}
-.col-12 {
-  width: 100%;
+.iconHomeOffice {
+  background: url('../Ic_HomeOffice.svg');
+  height: 90px;
+  width: 90px;
+  display: block;
 }
 
-[class*="col-"] {
-  float: left;
-  padding: 15px;
-  border: 1px solid red;
+.iconWorkshop {
+  background: url('../Ic_Workshops.svg');
+  height: 90px;
+  width: 90px;
+  display: block;
 }
+
+.iconSnacks {
+  background: url('../Ic_DrinkSnacks.svg');
+  height: 90px;
+  width: 90px;
+  display: block;
+}
+
+.iconRemote {
+  background: url('../Ic_laptop.svg');
+  height: 90px;
+  width: 90px;
+  display: block;
+}
+
+.iconTechs {
+  background: url('../Ic_brain.svg');
+  height: 90px;
+  width: 90px;
+  display: block;
+}
+}
+@media screen and (max-width: 800px) {}
+
+@media screen and (max-width: 300px) {}

@@ -10,11 +10,12 @@ export function Home(props) {
         <Fragment>
             <div className="flex-container">
                 <div className="Background1">
-                    <div>
-                        <h2>W O L O X</h2>
-                        <h2>Bienvenido a tu entrevista tecnica</h2>
-                    </div>
                     <Link to="/Login">Login</Link>
+                    <img className="WoloxHead"/>
+                    <div className="TopPage">
+                        <div><h2>Bienvenido a tu entrevista tecnica</h2></div>
+                        <div><img className="imgHero"/></div>
+                    </div>
                 </div>
                 <div className="Background2">
                     <img className="Woloxer"></img>
@@ -53,6 +54,7 @@ export function Home(props) {
                 </div>
                 <div className="Background4">
                     <h2>Gracias por hacer el ejercicio</h2>
+                    <img className="WoloxFooter"/>
                 </div>
             </div>
         </Fragment>

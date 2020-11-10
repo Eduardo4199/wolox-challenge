@@ -37,27 +37,27 @@ export function Home(props) {
                     <div className="iconList">
                         <div className="icoFormat">
                             <i className="iconHour"></i>
-                            <label>Flexibilidad Horaria</label>
+                            <label className="icoLabel">Flexibilidad Horaria</label>
                         </div>
-                        <div className="icoFormat">
+                        <div>
                             <i className="iconHomeOffice"></i>
-                            <label>Home Office</label>
+                            <label className="icoLabel">Home Office</label>
                         </div>
                         <div className="icoFormat">
                             <i className="iconWorkshop"></i>
-                            <label>Capacitaciones y workshops</label>
+                            <label className="icoLabel">Capacitaciones y workshops</label>
                         </div>
                         <div className="icoFormat">
                             <i className="iconSnacks"></i>
-                            <label>Snacks,frutas, y bebidas gratis</label>
+                            <label className="icoLabel">Snacks,frutas, y bebidas gratis</label>
                         </div>
                         <div className="icoFormat">
                             <i className="iconRemote"></i>
-                            <label>Semana remota</label>
+                            <label className="icoLabel">Semana remota</label>
                         </div>
                         <div className="icoFormat">
                             <i className="iconTechs"></i>
-                            <label>Trabajar en las ultimas tecnologias</label>
+                            <label className="icoLabel">Trabajar en las ultimas tecnologias</label>
                         </div>
                     </div>
                 </div>

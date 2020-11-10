@@ -64,7 +64,6 @@
 
   .Background3 div{
     display: flex;
-    flex-direction: row;
     align-items: center;
   }
 
@@ -97,14 +96,32 @@
   }
 
 .iconList{
+  margin: 3%;
+  align-content: stretch;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  }
+
+  .iconList p{
+    flex-basis: content;
+  }
+
+.icoFormat{
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+}
+
+.icoLabel {
   display: flex;
   float: left;
   flex-direction: column;
   position: absolute;
-}
-
-.icoFormat {
-  flex-direction: row;
+  align-content: center;
+  text-align: center;
+  padding-top: 8%;
 }
 
 .iconHour {
@@ -112,6 +129,7 @@
   height: 90px;
   width: 90px;
   display: block;
+  flex-direction: column;
 }
 
 .iconHomeOffice {
@@ -119,6 +137,7 @@
   height: 90px;
   width: 90px;
   display: block;
+  flex-direction: column;
 }
 
 .iconWorkshop {
@@ -147,6 +166,9 @@
   height: 84px;
   width: 84px;
   display: block;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
 }
 }
 @media screen and (max-width: 800px) {

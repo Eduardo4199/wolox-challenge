@@ -34,9 +34,28 @@
     height: 25%;
     margin: 0%;
   }
-  .Background2 img{
+
+  .Bg2Container{
+    position: relative;
+    text-align: center;
+  }
+
+  .Bg2TwitterImg{
     width: 53%;
-    height: 10%;
+    float: left;
+    display: block;
+  }
+
+  .Bg2TwitterText {
+    position: absolute;
+    float: left;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+  }
+
+  .Bg2LeftText{
+    padding: 10%;
   }
 
   .Background3{
@@ -77,11 +96,15 @@
     transform: scaleX(-1);
   }
 
-  .iconHour {
-    background: url('../Ic_Hour.svg');
-    height: 90px;
-    width: 90px;
-    display: block;
+.iconList{
+  display: flex;
+  float: left;
+  flex-direction: column;
+  position: absolute;
+}
+
+.icoFormat {
+  flex-direction: row;
 }
 
 .iconHour {
@@ -114,15 +137,15 @@
 
 .iconRemote {
   background: url('../Ic_laptop.svg');
-  height: 90px;
-  width: 90px;
+  height: 65px;
+  width: 97px;
   display: block;
 }
 
 .iconTechs {
   background: url('../Ic_brain.svg');
-  height: 90px;
-  width: 90px;
+  height: 84px;
+  width: 84px;
   display: block;
 }
 }

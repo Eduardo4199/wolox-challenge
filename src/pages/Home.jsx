@@ -18,35 +18,44 @@ export function Home(props) {
                     </div>
                 </div>
                 <div className="Background2">
-                    <img className="Woloxer"></img>
-                    <div>
-                      Trabajamos para convertir ideas en productos.
+                    <div className="Bg2Container">
+                        <div>
+                            <img className="Woloxer Bg2TwitterImg"></img>
+                            <div className="Bg2TwitterText">
+                                <h2>350 + Woloxers</h2>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="Bg2LeftText">
+                                <h2>Trabajamos para convertir ideas en productos.</h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="Background3">
                     <h4>Entre los beneficios que ofrecemos se encuentran :)</h4>
-                    <div>
-                        <div>
+                    <div className="iconList">
+                        <div className="icoFormat">
                             <i className="iconHour"></i>
                             <label>Flexibilidad Horaria</label>
                         </div>
-                        <div>
+                        <div className="icoFormat">
                             <i className="iconHomeOffice"></i>
                             <label>Home Office</label>
                         </div>
-                        <div>
+                        <div className="icoFormat">
                             <i className="iconWorkshop"></i>
                             <label>Capacitaciones y workshops</label>
                         </div>
-                        <div>
+                        <div className="icoFormat">
                             <i className="iconSnacks"></i>
                             <label>Snacks,frutas, y bebidas gratis</label>
                         </div>
-                        <div>
+                        <div className="icoFormat">
                             <i className="iconRemote"></i>
                             <label>Semana remota</label>
                         </div>
-                        <div>
+                        <div className="icoFormat">
                             <i className="iconTechs"></i>
                             <label>Trabajar en las ultimas tecnologias</label>
                         </div>

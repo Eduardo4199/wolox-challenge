@@ -109,7 +109,7 @@ export function Home(props) {
                 <div className="Background4">
                     <h2><span className="Bg4TextA">Gracias por</span><span className="Bg4TextB"> completar el ejercicio</span></h2>
                     <h3><span className="Bg4TextC">Te invitamos a ver mas informacion</span></h3>
-                    <a>
+                    <a href="https://www.wolox.com.ar/">
                         <button className="CircledButtonMore">
                             <span className="Bg4TextC">Conocer mas</span>
                         </button>

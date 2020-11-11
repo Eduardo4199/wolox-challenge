@@ -57,17 +57,19 @@ export function Home(props) {
                             <div className="Bg2TwitterText">
                                 <h2><span className="Bg2TextA">350+</span><span className="Bg2TextB">Woloxers</span></h2>
                                 <h3><span className="Bg2TextC">@Wolox</span></h3>
-                                <a href="https://twitter.com/Wolox" className="HeaderAnchor Bg2TextC">Siguenos</a>
+                                <a href="https://twitter.com/Wolox" className="HeaderAnchor Bg2TextC">
+                                    <button className="CircledButtonTwitter"><span>Siguenos</span></button>
+                                </a>
                             </div>
                         </div>
                         <div>
                             <div className="Bg2LeftText">
                                 <h2>
                                     <span>
-                                        Trabajamos para <br></br>
+                                        <span className="TextBigA">Trabajamos para</span> <br></br>
                                         <span className="Bg2TextB"> convertir</span>
-                                        <span className="Bg2TextA"> ideas </span><span> en </span><br></br>
-                                        productos.
+                                        <span className="Bg2TextA"> ideas </span><span className="TextBigA"> en </span><br></br>
+                                        <span className="TextBigA">productos.</span>
                                     </span>
                                 </h2>
                             </div>
@@ -76,8 +78,8 @@ export function Home(props) {
                 </div>
                 <div className="Background3">
                     <h4>
-                        <span className="Bg3TextA">Entre los beneficios que ofrecemos se encuentran </span>
-                        <span className="Bg3TextB">;)</span>
+                        <span className="Bg3TextA TextBigB">Entre los beneficios que ofrecemos se encuentran </span>
+                        <span className="Bg3TextB TextBigB">;)</span>
                     </h4>
                     <div className="iconList">
                         <div className="icoFormat">
@@ -107,7 +109,10 @@ export function Home(props) {
                     </div>
                 </div>
                 <div className="Background4">
-                    <h2><span className="Bg4TextA">Gracias por</span><span className="Bg4TextB"> completar el ejercicio</span></h2>
+                    <h2>
+                        <span className="Bg4TextA TextBigB">Gracias por</span>
+                        <span className="Bg4TextB TextBigB"> completar el ejercicio</span>
+                    </h2>
                     <h3><span className="Bg4TextC">Te invitamos a ver mas informacion</span></h3>
                     <a href="https://www.wolox.com.ar/">
                         <button className="CircledButtonMore">

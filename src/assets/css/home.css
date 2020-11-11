@@ -42,7 +42,7 @@
   }
   
   .Background1 {
-    background-image: url('../Backgrounds/Bg_Header@3x.png');
+    background-image: url('../Backgrounds/Bg_Header.png');
     background-color: white;
     width: 100%;
     height: 25%;
@@ -108,16 +108,19 @@
   .Bg2TextA{
     font-style: 'Montserrat';
     font-weight: bold;
+    font-size: 3rem;
     color: rgb(145, 209, 49);
   }
 
   .Bg2TextB{
     font-style: 'Montserrat';
+    font-size: 3rem;
     color: rgb(27, 181, 253);
   }
 
   .Bg2TextC{
     font-style: 'Montserrat';
+    font-size: 2rem;
     color: rgb(255, 255, 255);
   }
 
@@ -133,6 +136,14 @@
     padding: 10%;
   }
 
+  .TextBigA{
+    font-size: 3rem;
+  }
+  
+  .TextBigB{
+    font-size: 2rem;
+  }
+
   .Background3{
     background-color: white;
   }
@@ -144,6 +155,7 @@
 
   .Bg3TextA{
     font-style: 'Montserrat';
+    font-weight: lighter;
   }
   .Bg3TextB{
     font-style: 'Montserrat';
@@ -151,13 +163,14 @@
   }
 
   .Background4 {
-    background-image: url('../Backgrounds/Bg_Footer@3x.png');
+    background-image: url('../Backgrounds/Bg_Footer.png');
+    background-size: cover;
     margin: 4%;
     align-content: center;
   }
 
   .Bg4TextA{
-    font-style: 'FiraSans';
+    font-style: 'Montserrat';
   }
   
   .Bg4TextB{
@@ -182,6 +195,18 @@
 
   .WoloxFooter{
     content: url("../Ic_Wolox_Footer.svg");
+  }
+
+  .CircledButtonTwitter {
+    padding: 10px 80px;
+    background: rgba(8, 180, 248, 0);
+    border-radius: 100px 100px 100px 100px;
+    border-color: rgba(8, 180, 248, 0.945);
+    color: white;
+  }
+
+  .CircledButtonTwitter:hover {
+    background: rgba(8, 180, 248, 0.945);
   }
 
   .CircledButtonLogin {

@@ -1,9 +1,39 @@
+@import url("fonts.css");
 @media screen and (max-width: 2000px) {
+
   .flex-container {
     display: flex;
     flex-direction: column;
-    background-color: red;
+    background-color: white;
     padding: 0%;
+  }
+
+  .HeaderBox{
+    display: flex;
+  }
+
+  .HeaderImg{
+    padding: 1%;
+    margin: inherit;
+  }
+
+  .HeaderPush{
+    padding: 1%;
+    margin-left:auto;
+    display: inline-flex;
+    align-content: stretch;
+    text-align: center;
+    flex-wrap: initial;
+    justify-content: space-between;
+    align-items: center;
+    gap: 45%;
+    margin-right: 28%;
+  }
+
+  .HeaderItem{
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
   }
   
   .Background1 {
@@ -24,6 +54,30 @@
     flex-direction: column;
     width: 50%;
     align-self: center;
+  }
+
+  .Bg1TextPosition {
+    align-items: center;
+    justify-content: left;
+  }
+
+  .Bg1Text{
+    font-family: 'Montserrat';
+    display: block;
+    font-weight: lighter;
+    text-align: justify;
+  }
+
+  .Bg1TextA{
+    font-family: 'Montserrat';
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .Bg1TextB{
+    font-family: 'Montserrat';
+    font-weight: bold;
+    color: rgb(145, 209, 49);
   }
   
   .Background2 {
@@ -81,6 +135,7 @@
 
   .WoloxHead{
     content: url("../logo_full_color.svg");
+    height: 30%;
   }
 
   .WoloxFooter{
@@ -120,58 +175,43 @@
   flex-direction: column;
   position: absolute;
   align-content: center;
-  text-align: center;
+  text-align: initial;
   padding-top: 8%;
+}
+
+.iconHour, .iconHomeOffice, .iconWorkshop, .iconSnacks, .iconRemote, .iconTechs{
+  background-repeat: no-repeat !important;
+  height: 90px;
+  width: 99px;
+  display: block;
+  flex-direction: column;
 }
 
 .iconHour {
   background: url('../Ic_Hour.svg');
-  height: 90px;
-  width: 90px;
-  display: block;
-  flex-direction: column;
 }
 
 .iconHomeOffice {
   background: url('../Ic_HomeOffice.svg');
-  height: 90px;
-  width: 90px;
-  display: block;
-  flex-direction: column;
 }
 
 .iconWorkshop {
   background: url('../Ic_Workshops.svg');
-  height: 90px;
-  width: 90px;
-  display: block;
 }
 
 .iconSnacks {
   background: url('../Ic_DrinkSnacks.svg');
-  height: 90px;
-  width: 90px;
-  display: block;
 }
 
 .iconRemote {
   background: url('../Ic_laptop.svg');
-  height: 65px;
-  width: 97px;
-  display: block;
 }
 
 .iconTechs {
   background: url('../Ic_brain.svg');
-  height: 84px;
-  width: 84px;
-  display: block;
-  flex-direction: column;
-  align-content: center;
-  text-align: center;
 }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   .Background1 {
     background-image: url('../Backgrounds/Bg_Header@2x.png');
     background-color: white;

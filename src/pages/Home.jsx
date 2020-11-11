@@ -10,11 +10,42 @@ export function Home(props) {
         <Fragment>
             <div className="flex-container">
                 <div className="Background1">
-                    <Link to="/Login">Login</Link>
-                    <img className="WoloxHead"/>
+                    <div className="HeaderBox">
+                        <div className="HeaderImg">
+                            <img className="WoloxHead"/>
+                        </div>
+                        <div className="HeaderPush">
+                            <div className="HeaderItem">
+                                <Link to="/Register"><span className="Bg1Text">Registrarse</span></Link>
+                            </div>
+                            <div className="HeaderItem">
+                                <span className="Bg1Text">Beneficios</span>
+                            </div>
+                            <div className="HeaderItem">
+                                <Link to="/Login"><span className="Bg1Text">Login</span></Link>
+                            </div>
+                        </div>
+                    </div>
                     <div className="TopPage">
-                        <div><h2>Bienvenido a tu entrevista tecnica</h2></div>
-                        <div><img className="imgHero"/></div>
+                        <div>
+                            <div className="Bg1TextPosition">
+                                <h2 className="Bg1Text">
+                                    <span>
+                                        Bienvenido a tu <br></br>
+                                    </span>
+                                    <span className="Bg1TextA">
+                                        <bold> Entrevista Técnica </bold>
+                                    </span>
+                                    en <br></br>
+                                    <span className="Bg1TextB">
+                                        <bold> Wolox</bold>
+                                    </span>
+                                </h2>
+                            </div>
+                        </div>
+                        <div>
+                            <img className="imgHero"/>
+                        </div>
                     </div>
                 </div>
                 <div className="Background2">
@@ -39,7 +70,7 @@ export function Home(props) {
                             <i className="iconHour"></i>
                             <label className="icoLabel">Flexibilidad Horaria</label>
                         </div>
-                        <div>
+                        <div className="icoFormat">
                             <i className="iconHomeOffice"></i>
                             <label className="icoLabel">Home Office</label>
                         </div>

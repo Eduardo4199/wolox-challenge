@@ -16,13 +16,15 @@ export function Home(props) {
                         </div>
                         <div className="HeaderPush">
                             <div className="HeaderItem">
-                                <Link to="/Register"><span className="Bg1Text">Registrarse</span></Link>
+                                <Link to="/Register" className="HeaderAnchor"><span className="Bg1Text">Registrarse</span></Link>
                             </div>
                             <div className="HeaderItem">
                                 <span className="Bg1Text">Beneficios</span>
                             </div>
                             <div className="HeaderItem">
-                                <Link to="/Login"><span className="Bg1Text">Login</span></Link>
+                                <Link to="/Login" className="HeaderAnchor">
+                                    <button className="CircledButtonLogin"><span className="Bg1Text">Login</span></button>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -53,7 +55,9 @@ export function Home(props) {
                         <div>
                             <img className="Woloxer Bg2TwitterImg"></img>
                             <div className="Bg2TwitterText">
-                                <h2>350 + Woloxers</h2>
+                                <h2><span className="Bg2TextA">350+</span><span className="Bg2TextB">Woloxers</span></h2>
+                                <h3><span className="Bg2TextC">@Wolox</span></h3>
+                                <a href="https://twitter.com/Wolox" className="HeaderAnchor Bg2TextC">Siguenos</a>
                             </div>
                         </div>
                         <div>
@@ -64,7 +68,10 @@ export function Home(props) {
                     </div>
                 </div>
                 <div className="Background3">
-                    <h4>Entre los beneficios que ofrecemos se encuentran :)</h4>
+                    <h4>
+                        <span className="Bg3TextA">Entre los beneficios que ofrecemos se encuentran </span>
+                        <span className="Bg3TextB">;)</span>
+                    </h4>
                     <div className="iconList">
                         <div className="icoFormat">
                             <i className="iconHour"></i>
@@ -93,7 +100,15 @@ export function Home(props) {
                     </div>
                 </div>
                 <div className="Background4">
-                    <h2>Gracias por hacer el ejercicio</h2>
+                    <h2><span className="Bg4TextA">Gracias por</span><span className="Bg4TextB"> completar el ejercicio</span></h2>
+                    <h3><span className="Bg4TextC">Te invitamos a ver mas informacion</span></h3>
+                    <a>
+                        <button className="CircledButtonMore">
+                            <span className="Bg4TextC">Conocer mas</span>
+                        </button>
+                    </a>
+                </div>
+                <div>
                     <img className="WoloxFooter"/>
                 </div>
             </div>

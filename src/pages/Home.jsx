@@ -62,7 +62,14 @@ export function Home(props) {
                         </div>
                         <div>
                             <div className="Bg2LeftText">
-                                <h2>Trabajamos para convertir ideas en productos.</h2>
+                                <h2>
+                                    <span>
+                                        Trabajamos para <br></br>
+                                        <span className="Bg2TextB"> convertir</span>
+                                        <span className="Bg2TextA"> ideas </span><span> en </span><br></br>
+                                        productos.
+                                    </span>
+                                </h2>
                             </div>
                         </div>
                     </div>

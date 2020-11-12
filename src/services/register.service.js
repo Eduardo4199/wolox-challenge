@@ -20,8 +20,8 @@ function getStates(country) {
     return countriesStates;
 }
 
-function registerUser(params) {
-    let result = callApi("signup", "POST", params);
+async function registerUser(params) {
+    let result = await callApi("signup", "POST", params);
     let data = {
         "name": params.name,
         "last_name": params.last_name,
@@ -31,6 +31,7 @@ function registerUser(params) {
         "password": params.password,
     };
     addUserDB(data);
+    console.log(result);
     return result == "qiowAS9ndnjLKSS32LaLAPlDKL2" ? true : false;
 }
 

@@ -1,7 +1,7 @@
 import React, {Fragment} from "react";
 import {useHistory} from "react-router-dom";
 import {useForm} from "react-hook-form";
-import "../assets/css/home.css";
+import "../assets/css/login.css";
 import {userService} from "../services/user.service";
 /**
  * @return {string} app view.
@@ -20,14 +20,17 @@ export function Login(props) {
 
     return (
         <Fragment>
-            <div className="flex-container">
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <label htmlFor="email">Email</label>
-                    <input name="email" ref={register({required: true})} />
-                    <label htmlFor="password">Password</label>
-                    <input name="password" ref={register({required: true})} />
-                    <button type="submit">Enviar</button>
-                </form>
+            <div>
+                <div className="loginForm">
+                    <h1>Login</h1>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <label className="" htmlFor="email">Email</label>
+                        <input type="text" name="email" ref={register({required: true})} />
+                        <label className="" htmlFor="password">Password</label>
+                        <input type="password" name="password" ref={register({required: true})} />
+                        <input type="submit"/>
+                    </form>
+                </div>
             </div>
         </Fragment>
     );

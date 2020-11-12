@@ -1,6 +1,7 @@
 import "../json/countries.json";
 import "../json/states.json";
 import {callApi} from "./service";
+import {userService} from "./user.service";
 
 export const registerService = {
     getCountries,
@@ -32,7 +33,13 @@ async function registerUser(params) {
     };
     addUserDB(data);
     console.log(result);
-    return result == "qiowAS9ndnjLKSS32LaLAPlDKL2" ? true : false;
+    let registerResult = result.token == "qiowAS9ndnjLKSS32LaLAPlDKL2" ? true : false;
+    if (registerResult) {
+        userService.login(params);
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function addUserDB(data) {

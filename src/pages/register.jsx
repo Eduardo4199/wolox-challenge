@@ -12,7 +12,9 @@ export function Register(props) {
     const {register, handleSubmit, control, errors, getValues} = useForm();
     const onSubmit = (data) => {
         registerService.registerUser(data).then((data) =>{
-            console.log(data);
+            if (data) {
+                history.push("/Technologies");
+            }
         });
     };
 

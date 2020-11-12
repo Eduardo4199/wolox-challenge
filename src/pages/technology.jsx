@@ -2,6 +2,7 @@ import React, {Fragment, useEffect, useState} from "react";
 import {technologyService} from "../services/technology.service";
 import {SearchBar} from "../components/searchBar";
 import {CheckboxFilter} from "../components/checkboxFilter";
+import "../assets/css/technology.css";
 
 export function Technologies() {
     const [technologies, setTechnologies] = useState([]);
@@ -40,19 +41,28 @@ export function Technologies() {
 
     return (
         <Fragment>
-            <div>
+            <div className="wrapper">
                 <h1>Tecnologias</h1>
-                {results &&
-                    <Fragment>
-                        <SearchBar setResults={setSearchResult} list={technologies}/>
-                        <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setFilterResults}/>
-                        {results.map((item, index) => (
-                            <div key={index}>
-                                <p>{item.tech}</p>
-                            </div>
-                        ))}
-                    </Fragment>
-                }
+                <div className="">
+                    <div className="items">
+                        {results &&
+                            <Fragment>
+                                <SearchBar setResults={setSearchResult} list={technologies}/>
+                                <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setFilterResults}/>
+                                <div className="item">
+                                    {results.map((item, index) => (
+                                        <div className="" key={index}>
+                                            <div className="">
+                                                <span className=""><img src={item.logo} alt=""/></span>
+                                            </div>
+                                            <div className="">{item.tech}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </Fragment>
+                        }
+                    </div>
+                </div>
             </div>
         </Fragment>
     );

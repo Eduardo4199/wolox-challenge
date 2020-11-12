@@ -8,7 +8,7 @@ import {userService} from "../services/user.service";
  * @param {Object} props
  */
 export function Login(props) {
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit, errors} = useForm();
     const history = useHistory();
 
     const onSubmit = (data) => {
@@ -33,8 +33,17 @@ export function Login(props) {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <label className="" htmlFor="email">Email</label>
                         <input type="text" name="email" ref={register({required: true})} />
+                        {errors.email &&
+                        <Fragment>
+                            <span>Ingrese un correo</span>
+                            <br></br>
+                        </Fragment>
+                        }
                         <label className="" htmlFor="password">Password</label>
                         <input type="password" name="password" ref={register({required: true})} />
+                        {errors.password &&
+                            <span>Ingrese una contraseña</span>
+                        }
                         <input type="submit"/>
                     </form>
                 </div>

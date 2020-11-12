@@ -1,5 +1,6 @@
 import React, {Fragment, useEffect, useState} from "react";
 import {useForm, Controller} from "react-hook-form";
+import {useHistory} from "react-router-dom";
 import {registerService} from "../services/register.service";
 import "../assets/css/register.css";
 
@@ -7,18 +8,20 @@ export function Register(props) {
     const [countries, setCountries] = useState([]);
     const [states, setStates] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState();
-
+    const history = useHistory();
     const {register, handleSubmit, control, errors, getValues} = useForm();
     const onSubmit = (data) => {
-        registerService.registerUser(data);
+        registerService.registerUser(data).then((data) =>{
+            console.log(data);
+        });
     };
 
     useEffect(() => {
-        setCountries(registerService.getCountries);
         let user = JSON.parse(localStorage.getItem("loggedUser"));
         if (user) {
             history.push("/Technologies");
         }
+        setCountries(registerService.getCountries);
     }, []);
 
     useEffect(() => {

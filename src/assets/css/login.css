@@ -82,17 +82,18 @@
 @media screen and (max-width: 500px) {
     body{
         margin: 0;
-        padding: 0;
+        padding: 20;
         font-family: 'Montserrat';
         background: white;
+        overflow: auto;
     }
     
     .loginForm{
         width: 200px;
-        padding: 40px;
+        padding: 20px;
         position: absolute;
-        top: 50%;
-        left: 50%;
+        top: 25%;
+        left: 25%;
         transform: translate(-50%,-50%);
         background: #f2f5fa;
         border-radius: 12px;

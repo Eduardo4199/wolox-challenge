@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useEffect} from "react";
 import {useHistory} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import "../assets/css/login.css";
@@ -17,6 +17,13 @@ export function Login(props) {
             history.push("/Technologies");
         }
     };
+
+    useEffect(() =>{
+        let user = JSON.parse(localStorage.getItem("loggedUser"));
+        if (user) {
+            history.push("/Technologies");
+        }
+    }, []);
 
     return (
         <Fragment>

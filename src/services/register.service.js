@@ -35,10 +35,9 @@ function registerUser(params) {
 }
 
 function addUserDB(data) {
-    let users = localStorage.getItem("users");
-    if (users) {
-        localStorage.setItem("users", JSON.stringify(data));
-    } else {
-        localStorage.setItem("users", JSON.stringify(data));
-    }
+    let user = {
+        email: data.email,
+        password: data.password,
+    };
+    localStorage.setItem("users", JSON.stringify(user));
 }

@@ -3,12 +3,14 @@ import {technologyService} from "../services/technology.service";
 import {SearchBar} from "../components/searchBar";
 import {CheckboxFilter} from "../components/checkboxFilter";
 import "../assets/css/technology.css";
+import {Technology} from "../components/technologies/Technology";
 
 export function Technologies() {
     const [technologies, setTechnologies] = useState([]);
     const [searchResults, setSearchResult] = useState([]);
     const [filterResults, setFilterResults] = useState([]);
     const [results, setResults] = useState([]);
+    const [favourites, setFavourites] = useState([]);
     const checkboxFilters = ["Back-End", "Front-End", "Mobile"];
 
     useEffect(()=>{
@@ -16,6 +18,10 @@ export function Technologies() {
             .then((data) => {
                 setTechnologies(data);
                 setResults(data);
+                let favourites = JSON.parse(localStorage.getItem("favourites"));
+                if (favourites.length ==! 0) {
+                    setFavourites(favourites);
+                }
             });
     }, []);
 
@@ -39,6 +45,18 @@ export function Technologies() {
         }
     };
 
+    const manageFavourites = (item) =>{
+        if (favourites.includes(item)) {
+            let result = favourites.filter((element) => element.tech !== item.tech);
+            setFavourites(result);
+            console.log(result);
+            localStorage.setItem("favourites", JSON.stringify(result));
+        } else {
+            favourites.push(item);
+            localStorage.setItem("favourites", JSON.stringify(favourites));
+        }
+    };
+
     return (
         <Fragment>
             <div className="wrapper">
@@ -51,12 +69,7 @@ export function Technologies() {
                                 <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setFilterResults}/>
                                 <div className="item">
                                     {results.map((item, index) => (
-                                        <div className="" key={index}>
-                                            <div className="">
-                                                <span className=""><img src={item.logo} alt=""/></span>
-                                            </div>
-                                            <div className="">{item.tech}</div>
-                                        </div>
+                                        <Technology item={item} key={index} manageFavourites={manageFavourites}/>
                                     ))}
                                 </div>
                             </Fragment>

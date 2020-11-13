@@ -1,9 +1,11 @@
 import React, {Fragment, useEffect, useState} from "react";
+import {useHistory} from "react-router-dom";
 import {technologyService} from "../services/technology.service";
 import {SearchBar} from "../components/searchBar";
 import {CheckboxFilter} from "../components/checkboxFilter";
 import "../assets/css/technology.css";
 import {Technology} from "../components/technologies/Technology";
+import {userService} from "../services/user.service";
 
 export function Technologies() {
     const [technologies, setTechnologies] = useState([]);
@@ -11,6 +13,7 @@ export function Technologies() {
     const [filterResults, setFilterResults] = useState([]);
     const [results, setResults] = useState([]);
     const [favourites, setFavourites] = useState([]);
+    const history = useHistory();
     const checkboxFilters = ["Back-End", "Front-End", "Mobile"];
 
     useEffect(()=>{
@@ -18,7 +21,6 @@ export function Technologies() {
             .then((data) => {
                 setTechnologies(data);
                 setResults(data);
-                let favourites = JSON.parse(localStorage.getItem("favourites"));
                 if (favourites.length ==! 0) {
                     setFavourites(favourites);
                 }
@@ -57,9 +59,15 @@ export function Technologies() {
         }
     };
 
+    const logout = () => {
+        userService.logout();
+        history.push("/Home");
+    };
+
     return (
         <Fragment>
             <div className="wrapper">
+                <button onClick={() => logout()}>Logout</button>
                 <h1>Tecnologias</h1>
                 <div className="">
                     <div className="items">
@@ -69,7 +77,8 @@ export function Technologies() {
                                 <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setFilterResults}/>
                                 <div className="item">
                                     {results.map((item, index) => (
-                                        <Technology item={item} key={index} manageFavourites={manageFavourites}/>
+                                        <Technology item={item} key={index} manageFavourites={manageFavourites}
+                                            isFavourite={favourites.includes(item)}/>
                                     ))}
                                 </div>
                             </Fragment>

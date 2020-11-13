@@ -9,7 +9,9 @@ export function Technology(props) {
                         <span className=""><img src={props.item.logo} alt=""/></span>
                     </div>
                     <div className="">{props.item.tech}</div>
-                    <input type="checkbox" name="favourite" onClick={() => props.manageFavourites(props.item)}/>
+                    <input type="checkbox" name="favourite"
+                        onClick={() => props.manageFavourites(props.item)} checked={props.isFavourite}/>
+                    {console.log(props.isFavourite)}
                 </div>
             </div>
         </Fragment>

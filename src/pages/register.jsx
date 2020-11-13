@@ -3,6 +3,7 @@ import {useForm, Controller} from "react-hook-form";
 import {useHistory} from "react-router-dom";
 import {registerService} from "../services/register.service";
 import "../assets/css/register.css";
+import {regEx} from "../config";
 
 export function Register(props) {
     const [countries, setCountries] = useState([]);
@@ -69,7 +70,8 @@ export function Register(props) {
                                 control={control} name="state"/>
                         )}
                         <label>Email</label>
-                        <input type="text"name="email" ref={register({required: true})} />
+                        <input type="text"name="email" ref={register({required: true, pattern: regEx.mail, maxLength: 255})}/>
+                        {errors.password && <p className="error">Email invalido</p>}
                         <label>Telefono</label>
                         <input name="phone" ref={register({required: true})} type="number" pattern="[0-9]"/>
                         <label>Password</label>

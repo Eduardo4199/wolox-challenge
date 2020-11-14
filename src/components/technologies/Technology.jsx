@@ -1,6 +1,6 @@
 import React, {Fragment} from "react";
 
-export function Technology(props) {
+export default function Technology(props) {
     return (
         <Fragment>
             <div className="item">

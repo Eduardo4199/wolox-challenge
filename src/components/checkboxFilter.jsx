@@ -1,6 +1,7 @@
 import React, {Fragment, useState} from "react";
+import "../assets/css/technology.css";
 
-export function CheckboxFilter(props) {
+export default function CheckboxFilter(props) {
     const [selectedFilters, setSelectedFilters] = useState([]);
 
     const manageFilter = (item) =>{
@@ -33,13 +34,15 @@ export function CheckboxFilter(props) {
 
     return (
         <Fragment>
-            {props.filters &&
-                props.filters.map((item, index) => (
-                    <div key={index}>
-                        <label>{item}</label>
-                        <input type="checkbox" value={item} onClick={() => manageFilter(item)}></input>
-                    </div>
-                ))}
+            <div className="row">
+                {props.filters &&
+                    props.filters.map((item, index) => (
+                        <div key={index}>
+                            <label>{item}</label>
+                            <input type="checkbox" value={item} onClick={() => manageFilter(item)}></input>
+                        </div>
+                    ))}
+            </div>
         </Fragment>
     );
-}
+};

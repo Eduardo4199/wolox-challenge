@@ -48,4 +48,5 @@ function addUserDB(data) {
         password: data.password,
     };
     localStorage.setItem("users", JSON.stringify(user));
+    localStorage.setItem("favourites", JSON.stringify([]));
 }

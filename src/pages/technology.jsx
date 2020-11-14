@@ -1,13 +1,22 @@
-import React, {Fragment, useEffect, useState} from "react";
+import React, {Fragment, useEffect, useState, lazy, Suspense, useCallback} from "react";
+import {useHistory} from "react-router-dom";
+import "../assets/css/technology.css";
+import {userService} from "../services/user.service";
 import {technologyService} from "../services/technology.service";
-import {SearchBar} from "../components/searchBar";
-import {CheckboxFilter} from "../components/checkboxFilter";
+const CheckboxFilter = lazy(() => import("../components/checkboxFilter"));
+const Technology = lazy(() => import("../components/technologies/Technology"));
+const SearchBar = lazy(() => import("../components/searchBar"));
+const Navbar = lazy(() => import("../components/technologies/Navbar"));
 
 export function Technologies() {
     const [technologies, setTechnologies] = useState([]);
     const [searchResults, setSearchResult] = useState([]);
     const [filterResults, setFilterResults] = useState([]);
     const [results, setResults] = useState([]);
+    const [favourites, setFavourites] = useState([]);
+    const [order, setOrder] = useState(true); /* true ascendente y false descendente*/
+    const [favLength, setFavLength] = useState();
+    const history = useHistory();
     const checkboxFilters = ["Back-End", "Front-End", "Mobile"];
 
     useEffect(()=>{
@@ -15,6 +24,9 @@ export function Technologies() {
             .then((data) => {
                 setTechnologies(data);
                 setResults(data);
+                setFavourites(JSON.parse(localStorage.getItem("favourites")));
+                setFavLength(JSON.parse(localStorage.getItem("favourites")).length);
+                sortResults();
             });
     }, []);
 
@@ -22,7 +34,7 @@ export function Technologies() {
         matchResults();
     }, [searchResults, filterResults]);
 
-    const matchResults = () =>{
+    const matchResults = (() =>{
         if (searchResults.length > 0 && filterResults.length === 0) {
             console.log(searchResults);
             setResults(searchResults);
@@ -36,23 +48,103 @@ export function Technologies() {
             console.log(intersection);
             setResults(intersection);
         }
+    });
+
+    const manageFavourites = useCallback((item) =>{
+        if (favourites.filter((e) => e.tech === item.tech).length > 0) {
+            console.log("Es favorito");
+            let result = favourites.filter((element) => element.tech !== item.tech);
+            setFavourites(result);
+            console.log(result);
+            setFavLength(result.length);
+            console.log(favourites);
+            localStorage.setItem("favourites", JSON.stringify(result));
+        } else {
+            console.log("No es favorito");
+            let result = favourites;
+            result.push(item);
+            setFavourites(result);
+            console.log(favourites);
+            setFavLength(result.length);
+            localStorage.setItem("favourites", JSON.stringify(favourites));
+        }
+        sortResults();
+    }, [favourites]);
+
+    const logout = () => {
+        userService.logout();
+        history.push("/Home");
     };
+
+    useEffect(() => {
+        sortResults();
+    }, [order]);
+
+    const sortResults = useCallback(() => {
+        if (order) {
+            results.sort(function(a, b) {
+                if (a.tech < b.tech) {
+                    return -1;
+                }
+                if (a.tech > b.tech) {
+                    return 1;
+                }
+                return 0;
+            });
+        } else {
+            results.sort(function(a, b) {
+                if (a.tech > b.tech) {
+                    return -1;
+                }
+                if (a.tech < b.tech) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+    });
+
+    const isFavTech = useCallback((item) => {
+        console.log(favourites);
+        if (favourites.includes(item)) {
+            console.log("Item incluido");
+            return true;
+        } else {
+            console.log("Item no incluido");
+            return false;
+        }
+    }, []);
 
     return (
         <Fragment>
-            <div>
-                <h1>Tecnologias</h1>
-                {results &&
-                    <Fragment>
-                        <SearchBar setResults={setSearchResult} list={technologies}/>
-                        <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setFilterResults}/>
-                        {results.map((item, index) => (
-                            <div key={index}>
-                                <p>{item.tech}</p>
+            <div className="wrapper">
+                <Suspense fallback={<h2>Cargando...</h2>}>
+                    <Navbar logout={logout} favourites={favLength}/>
+                    <h1>Tecnologias</h1>
+                    <div>
+                        <div>
+                            <SearchBar setResults={setSearchResult} list={technologies}/>
+                            <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setFilterResults}/>
+                            <div>
+                                <span>Orden:</span>
+                                <button onClick={() => setOrder(!order)}>{order ? "Ascendente" : "Descendente"}</button>
                             </div>
-                        ))}
-                    </Fragment>
-                }
+                            {results &&
+                                <Fragment>
+                                    <div className="items">
+                                        {results.map((item, index) => (
+                                            <Technology item={item} key={index} manageFavourites={manageFavourites}
+                                                isFavourite={isFavTech(item)}/>
+                                        ))}
+                                    </div>
+                                    <div>
+                                        <span>Total : {results.length}</span>
+                                    </div>
+                                </Fragment>
+                            }
+                        </div>
+                    </div>
+                </Suspense>
             </div>
         </Fragment>
     );

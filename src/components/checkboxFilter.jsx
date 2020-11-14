@@ -1,10 +1,10 @@
-import React, {Fragment, useState, useCallback} from "react";
+import React, {Fragment, useState} from "react";
 import "../assets/css/technology.css";
 
-export const CheckboxFilter = React.memo((props) => {
+export default function CheckboxFilter(props) {
     const [selectedFilters, setSelectedFilters] = useState([]);
 
-    const manageFilter = useCallback((item) =>{
+    const manageFilter = (item) =>{
         let filters = selectedFilters;
         if (filters.includes(item)) {
             let aux = filters.indexOf(item);
@@ -14,9 +14,9 @@ export const CheckboxFilter = React.memo((props) => {
         }
         setSelectedFilters(filters);
         applyFilter();
-    }, []);
+    };
 
-    const applyFilter = useCallback(() => {
+    const applyFilter = () => {
         let resultsAux = [];
         if (selectedFilters.length > 0) {
             selectedFilters.forEach((element) => {
@@ -30,7 +30,7 @@ export const CheckboxFilter = React.memo((props) => {
         } else {
             props.setResults(props.techs);
         }
-    }, [selectedFilters]);
+    };
 
     return (
         <Fragment>
@@ -45,8 +45,4 @@ export const CheckboxFilter = React.memo((props) => {
             </div>
         </Fragment>
     );
-});
-
-CheckboxFilter.displayName = "SearchBar";
-
-export default CheckboxFilter;
+};

@@ -1,6 +1,6 @@
 @import url("fonts.css");
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 2000px) {
   .wrapper{
     display: flex;
     flex-direction: column;
@@ -91,6 +91,10 @@
     display: block;
     position: relative;
     margin: auto;
+  }
+
+  .favourite{
+    background-color: rgb(238, 142, 142);
   }
   
   .card h3{

@@ -10,8 +10,8 @@ export default function Technology(props) {
     return (
         <Fragment>
             <div className="card">
-                <div className="" key={props.index}>
-                    <div className="">
+                <div className={isFavourite ? "" : "favourite"} key={props.index}>
+                    <div>
                         <span><img src={props.item.logo}/></span>
                     </div>
                     <h3>{props.item.tech}</h3>
@@ -20,8 +20,9 @@ export default function Technology(props) {
                     <span>Licencia: {props.item.license}</span>
                     <span>Lenguaje: {props.item.language}</span>
                     <span>Tipo: {props.item.type}</span>
+                    <label>Favorito</label>
                     <input type="checkbox" name="favourite"
-                        onClick={() => props.manageFavourites(props.item)} checked={isFavourite}/>
+                        onClick={() => props.manageFavourites(props.item)}/>
                 </div>
             </div>
         </Fragment>

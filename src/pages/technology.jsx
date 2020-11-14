@@ -26,6 +26,7 @@ export function Technologies() {
                 setResults(data);
                 setFavourites(JSON.parse(localStorage.getItem("favourites")));
                 setFavLength(JSON.parse(localStorage.getItem("favourites")).length);
+                sortResults();
             });
     }, []);
 
@@ -67,7 +68,7 @@ export function Technologies() {
             setFavLength(result.length);
             localStorage.setItem("favourites", JSON.stringify(favourites));
         }
-        console.log(favourites.length);
+        sortResults();
     }, [favourites]);
 
     const logout = () => {
@@ -90,7 +91,6 @@ export function Technologies() {
                 }
                 return 0;
             });
-            console.log(results);
         } else {
             results.sort(function(a, b) {
                 if (a.tech > b.tech) {
@@ -101,9 +101,19 @@ export function Technologies() {
                 }
                 return 0;
             });
-            console.log(results);
         }
     });
+
+    const isFavTech = useCallback((item) => {
+        console.log(favourites);
+        if (favourites.includes(item)) {
+            console.log("Item incluido");
+            return true;
+        } else {
+            console.log("Item no incluido");
+            return false;
+        }
+    }, []);
 
     return (
         <Fragment>
@@ -113,17 +123,18 @@ export function Technologies() {
                     <h1>Tecnologias</h1>
                     <div>
                         <div>
-                            <div>
-                                <button onClick={() => setOrder(!order)}>{order ? "Ascendente" : "Descendente"}</button>
-                            </div>
                             <SearchBar setResults={setSearchResult} list={technologies}/>
                             <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setFilterResults}/>
+                            <div>
+                                <span>Orden:</span>
+                                <button onClick={() => setOrder(!order)}>{order ? "Ascendente" : "Descendente"}</button>
+                            </div>
                             {results &&
                                 <Fragment>
                                     <div className="items">
                                         {results.map((item, index) => (
                                             <Technology item={item} key={index} manageFavourites={manageFavourites}
-                                                isFavourite={favourites.indexOf(item)}/>
+                                                isFavourite={isFavTech(item)}/>
                                         ))}
                                     </div>
                                     <div>

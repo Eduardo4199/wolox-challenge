@@ -1,5 +1,5 @@
 @import url("fonts.css");
-@media screen and (max-width: 2000px) {
+@media screen and (max-width: 1000px) {
 
   .flex-container {
     display: flex;
@@ -305,22 +305,621 @@
   background: url('../Ic_brain.svg');
 }
 }
-@media screen and (max-width: 1000px) {
+
+@media screen and (max-width: 800px) {
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 0%;
+  }
+
+  .HeaderBox{
+    display: inline;
+  }
+
+  .HeaderImg{
+    padding: 10% 0px 0px 0px;
+    margin: inherit;
+    width: 100%;
+  }
+
+  .HeaderPush{
+    padding: 1%;
+    margin-left:auto;
+    display: inline-flex;
+    align-content: stretch;
+    text-align: center;
+    flex-wrap: initial;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15%;
+    margin-right: 28%;
+  }
+
+  .HeaderAnchor{
+    text-decoration: none;
+  }
+
+
+  .HeaderItem{
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+  }
+  
   .Background1 {
-    background-image: url('../Backgrounds/Bg_Header@2x.png');
+    background-image: url('../Backgrounds/Bg_Header.png') no-repeat center center fixed;
     background-color: white;
     width: 100%;
     height: 25%;
     margin: 0%;
   }
+
+  .TopPage {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .TopPage div{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-self: center;
+  }
+
+  .Bg1TextPosition {
+    align-items: center;
+    justify-content: left;
+  }
+
+  .Bg1Text{
+    font-family: 'Montserrat';
+    display: block;
+    font-weight: lighter;
+    text-align: justify;
+  }
+
+  .Bg1TextA{
+    font-family: 'Montserrat';
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .Bg1TextB{
+    font-family: 'Montserrat';
+    font-weight: bold;
+    color: rgb(145, 209, 49);
+  }
+  
+  .Background2 {
+    display: flex;
+    flex-direction: row;
+    background-color: #f2f5fa;
+    width: 100%;
+    height: 25%;
+    margin: 0%;
+  }
+
+  .Bg2Container{
+    position: relative;
+    text-align: center;
+  }
+
+  .Bg2TwitterImg{
+    width: 100%;
+    float: left;
+    display: block;
+  }
+
+  .Bg2TextA{
+    font-style: 'Montserrat';
+    font-weight: bold;
+    font-size: 3rem;
+    color: rgb(145, 209, 49);
+  }
+
+  .Bg2TextB{
+    font-style: 'Montserrat';
+    font-size: 3rem;
+    color: rgb(27, 181, 253);
+  }
+
+  .Bg2TextC{
+    font-style: 'Montserrat';
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+  }
+
+  .Bg2TwitterText {
+    position: absolute;
+    float: left;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .Bg2LeftText{
+    padding: 10%;
+  }
+
+  .TextBigA{
+    font-size: 3rem;
+  }
+  
+  .TextBigB{
+    font-size: 2rem;
+  }
+
+  .Background3{
+    background-color: white;
+  }
+
+  .Background3 div{
+    display: flex;
+    align-items: center;
+  }
+
+  .Bg3TextA{
+    font-style: 'Montserrat';
+    font-weight: lighter;
+  }
+  .Bg3TextB{
+    font-style: 'Montserrat';
+    color: rgb(145, 209, 49);
+  }
+
+  .Background4 {
+    background-image: url('../Backgrounds/Bg_Footer.png');
+    background-size: cover;
+    margin: 4%;
+    align-content: center;
+  }
+
+  .Bg4TextA{
+    font-style: 'Montserrat';
+  }
+  
+  .Bg4TextB{
+    font-style: 'FiraSans';
+    font-weight: bold;
+    color: rgb(27, 181, 253);
+  }
+
+  .Bg4TextC{
+    font-style: 'Montserrat';
+    font-weight: lighter;
+  }
+
+  .Woloxer {
+    content:url("../img_woloxer.png");
+  }
+
+  .WoloxHead{
+    content: url("../logo_full_color.svg");
+    height: 12%;
+    width: 60%;
+  }
+
+  .WoloxFooter{
+    content: url("../Ic_Wolox_Footer.svg");
+  }
+
+  .CircledButtonTwitter {
+    padding: 10px 80px;
+    background: rgba(8, 180, 248, 0);
+    border-radius: 100px 100px 100px 100px;
+    border-color: rgba(8, 180, 248, 0.945);
+    color: white;
+  }
+
+  .CircledButtonTwitter:hover {
+    background: rgba(8, 180, 248, 0.945);
+  }
+
+  .CircledButtonLogin {
+    padding: 5px 30px;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 100px 100px 100px 100px;
+  }
+
+  .CircledButtonLogin:hover {
+    background: rgb(66, 66, 66);
+    color: white;
+  }
+
+  .imgHero{
+    content: url("../ImgHero/Ic_ilustra_Hero@3x.png");
+    text-align: right;
+    width: 80%;
+    height: 90%;
+    transform: scaleX(-1);
+  }
+
+  .CircledButtonMore {
+    padding: 5px 30px;
+    background: rgb(23, 162, 243);
+    border-radius: 100px 100px 100px 100px;
+    border-color:rgb(23, 162, 243);
+
+    color: white;
+  }
+
+  .ButtonMoreText{
+    font-style: 'Montserrat';
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+  }
+
+.iconList{
+  margin: 3%;
+  align-content: stretch;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  }
+
+  .iconList p{
+    flex-basis: content;
+  }
+
+.icoFormat{
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+  padding: 10%;
 }
 
-@media screen and (max-width: 300px) {
+.icoLabel {
+  display: flex;
+  float: left;
+  flex-direction: column;
+  position: absolute;
+  align-content: center;
+  text-align: initial;
+  padding-top: 28%;
+  font-style: 'Montserrat';
+}
+
+.iconHour, .iconHomeOffice, .iconWorkshop, .iconSnacks, .iconRemote, .iconTechs{
+  background-repeat: no-repeat !important;
+  height: 90px;
+  width: 99px;
+  display: block;
+  flex-direction: column;
+}
+
+.iconHour {
+  background: url('../Ic_Hour.svg');
+}
+
+.iconHomeOffice {
+  background: url('../Ic_HomeOffice.svg');
+}
+
+.iconWorkshop {
+  background: url('../Ic_Workshops.svg');
+}
+
+.iconSnacks {
+  background: url('../Ic_DrinkSnacks.svg');
+}
+
+.iconRemote {
+  background: url('../Ic_laptop.svg');
+}
+
+.iconTechs {
+  background: url('../Ic_brain.svg');
+}
+}
+
+@media screen and (max-width: 500px) {
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 0%;
+  }
+
+  .HeaderBox{
+    display: inline;
+  }
+
+  .HeaderImg{
+    padding: 10% 0px 0px 0px;
+    margin: inherit;
+    width: 100%;
+  }
+
+  .HeaderPush{
+    padding: 1%;
+    margin-left:auto;
+    display: inline-flex;
+    align-content: stretch;
+    text-align: center;
+    flex-wrap: initial;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15%;
+    margin-right: 28%;
+  }
+
+  .HeaderAnchor{
+    text-decoration: none;
+  }
+
+
+  .HeaderItem{
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+  }
+  
   .Background1 {
-    background-image: url('../Backgrounds/Bg_Header.png');
+    background-image: url('../Backgrounds/Bg_Header.png') no-repeat center center fixed;
     background-color: white;
     width: 100%;
     height: 25%;
     margin: 0%;
   }
+
+  .TopPage {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .TopPage div{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-self: center;
+  }
+
+  .Bg1TextPosition {
+    align-items: center;
+    justify-content: left;
+  }
+
+  .Bg1Text{
+    font-family: 'Montserrat';
+    display: block;
+    font-weight: lighter;
+    text-align: justify;
+  }
+
+  .Bg1TextA{
+    font-family: 'Montserrat';
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .Bg1TextB{
+    font-family: 'Montserrat';
+    font-weight: bold;
+    color: rgb(145, 209, 49);
+  }
+  
+  .Background2 {
+    display: flex;
+    flex-direction: row;
+    background-color: #f2f5fa;
+    width: 100%;
+    height: 25%;
+    margin: 0%;
+  }
+
+  .Bg2Container{
+    position: relative;
+    text-align: center;
+  }
+
+  .Bg2TwitterImg{
+    width: 100%;
+    float: left;
+    display: block;
+  }
+
+  .Bg2TextA{
+    font-style: 'Montserrat';
+    font-weight: bold;
+    font-size: 3rem;
+    color: rgb(145, 209, 49);
+  }
+
+  .Bg2TextB{
+    font-style: 'Montserrat';
+    font-size: 3rem;
+    color: rgb(27, 181, 253);
+  }
+
+  .Bg2TextC{
+    font-style: 'Montserrat';
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+  }
+
+  .Bg2TwitterText {
+    position: absolute;
+    float: left;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .Bg2LeftText{
+    padding: 10%;
+  }
+
+  .TextBigA{
+    font-size: 3rem;
+  }
+  
+  .TextBigB{
+    font-size: 2rem;
+  }
+
+  .Background3{
+    background-color: white;
+  }
+
+  .Background3 div{
+    display: flex;
+    align-items: center;
+  }
+
+  .Bg3TextA{
+    font-style: 'Montserrat';
+    font-weight: lighter;
+  }
+  .Bg3TextB{
+    font-style: 'Montserrat';
+    color: rgb(145, 209, 49);
+  }
+
+  .Background4 {
+    background-image: url('../Backgrounds/Bg_Footer.png');
+    background-size: cover;
+    margin: 4%;
+    align-content: center;
+  }
+
+  .Bg4TextA{
+    font-style: 'Montserrat';
+  }
+  
+  .Bg4TextB{
+    font-style: 'FiraSans';
+    font-weight: bold;
+    color: rgb(27, 181, 253);
+  }
+
+  .Bg4TextC{
+    font-style: 'Montserrat';
+    font-weight: lighter;
+  }
+
+  .Woloxer {
+    content:url("../img_woloxer.png");
+  }
+
+  .WoloxHead{
+    content: url("../logo_full_color.svg");
+    height: 12%;
+    width: 60%;
+  }
+
+  .WoloxFooter{
+    content: url("../Ic_Wolox_Footer.svg");
+  }
+
+  .CircledButtonTwitter {
+    padding: 10px 80px;
+    background: rgba(8, 180, 248, 0);
+    border-radius: 100px 100px 100px 100px;
+    border-color: rgba(8, 180, 248, 0.945);
+    color: white;
+  }
+
+  .CircledButtonTwitter:hover {
+    background: rgba(8, 180, 248, 0.945);
+  }
+
+  .CircledButtonLogin {
+    padding: 5px 30px;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 100px 100px 100px 100px;
+  }
+
+  .CircledButtonLogin:hover {
+    background: rgb(66, 66, 66);
+    color: white;
+  }
+
+  .imgHero{
+    content: url("../ImgHero/Ic_ilustra_Hero@3x.png");
+    text-align: right;
+    width: 80%;
+    height: 90%;
+    transform: scaleX(-1);
+  }
+
+  .CircledButtonMore {
+    padding: 5px 30px;
+    background: rgb(23, 162, 243);
+    border-radius: 100px 100px 100px 100px;
+    border-color:rgb(23, 162, 243);
+
+    color: white;
+  }
+
+  .ButtonMoreText{
+    font-style: 'Montserrat';
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+  }
+
+.iconList{
+  margin: 3%;
+  align-content: stretch;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  }
+
+  .iconList p{
+    flex-basis: content;
+  }
+
+.icoFormat{
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+  padding: 10%;
+}
+
+.icoLabel {
+  display: flex;
+  float: left;
+  flex-direction: column;
+  position: absolute;
+  align-content: center;
+  text-align: initial;
+  padding-top: 28%;
+  font-style: 'Montserrat';
+}
+
+.iconHour, .iconHomeOffice, .iconWorkshop, .iconSnacks, .iconRemote, .iconTechs{
+  background-repeat: no-repeat !important;
+  height: 90px;
+  width: 99px;
+  display: block;
+  flex-direction: column;
+}
+
+.iconHour {
+  background: url('../Ic_Hour.svg');
+}
+
+.iconHomeOffice {
+  background: url('../Ic_HomeOffice.svg');
+}
+
+.iconWorkshop {
+  background: url('../Ic_Workshops.svg');
+}
+
+.iconSnacks {
+  background: url('../Ic_DrinkSnacks.svg');
+}
+
+.iconRemote {
+  background: url('../Ic_laptop.svg');
+}
+
+.iconTechs {
+  background: url('../Ic_brain.svg');
+}
 }

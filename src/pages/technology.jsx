@@ -15,6 +15,7 @@ export function Technologies() {
     const [results, setResults] = useState([]);
     const [favourites, setFavourites] = useState([]);
     const [order, setOrder] = useState(true); /* true ascendente y false descendente*/
+    const [favLength, setFavLength] = useState();
     const history = useHistory();
     const checkboxFilters = ["Back-End", "Front-End", "Mobile"];
 
@@ -24,6 +25,7 @@ export function Technologies() {
                 setTechnologies(data);
                 setResults(data);
                 setFavourites(JSON.parse(localStorage.getItem("favourites")));
+                setFavLength(JSON.parse(localStorage.getItem("favourites")).length);
             });
     }, []);
 
@@ -47,12 +49,13 @@ export function Technologies() {
         }
     });
 
-    const manageFavourites = (item) =>{
+    const manageFavourites = useCallback((item) =>{
         if (favourites.filter((e) => e.tech === item.tech).length > 0) {
             console.log("Es favorito");
             let result = favourites.filter((element) => element.tech !== item.tech);
             setFavourites(result);
             console.log(result);
+            setFavLength(result.length);
             console.log(favourites);
             localStorage.setItem("favourites", JSON.stringify(result));
         } else {
@@ -61,9 +64,11 @@ export function Technologies() {
             result.push(item);
             setFavourites(result);
             console.log(favourites);
+            setFavLength(result.length);
             localStorage.setItem("favourites", JSON.stringify(favourites));
         }
-    };
+        console.log(favourites.length);
+    }, [favourites]);
 
     const logout = () => {
         userService.logout();
@@ -104,22 +109,21 @@ export function Technologies() {
         <Fragment>
             <div className="wrapper">
                 <Suspense fallback={<h2>Cargando...</h2>}>
-                    <Navbar logout={logout} favourites={favourites?.length}/>
-                    {favourites.length}
+                    <Navbar logout={logout} favourites={favLength}/>
                     <h1>Tecnologias</h1>
-                    <div className="">
-                        <div className="items">
+                    <div>
+                        <div>
+                            <div>
+                                <button onClick={() => setOrder(!order)}>{order ? "Ascendente" : "Descendente"}</button>
+                            </div>
+                            <SearchBar setResults={setSearchResult} list={technologies}/>
+                            <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setFilterResults}/>
                             {results &&
                                 <Fragment>
-                                    <div>
-                                        <button onClick={() => setOrder(!order)}>{order ? "Ascendente" : "Descendente"}</button>
-                                    </div>
-                                    <SearchBar setResults={setSearchResult} list={technologies}/>
-                                    <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setFilterResults}/>
-                                    <div className="item">
+                                    <div className="items">
                                         {results.map((item, index) => (
                                             <Technology item={item} key={index} manageFavourites={manageFavourites}
-                                                isFavourite={favourites.includes(item)}/>
+                                                isFavourite={favourites.indexOf(item)}/>
                                         ))}
                                     </div>
                                     <div>

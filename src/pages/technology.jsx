@@ -13,6 +13,7 @@ export function Technologies() {
     const [filterResults, setFilterResults] = useState([]);
     const [results, setResults] = useState([]);
     const [favourites, setFavourites] = useState([]);
+    const [order, setOrder] = useState(true); /* true ascendente y false descendente*/
     const history = useHistory();
     const checkboxFilters = ["Back-End", "Front-End", "Mobile"];
 
@@ -64,6 +65,36 @@ export function Technologies() {
         history.push("/Home");
     };
 
+    useEffect(() => {
+        sortResults();
+    }, [order]);
+
+    const sortResults = useCallback(() => {
+        if (order) {
+            results.sort(function(a, b) {
+                if (a.tech < b.tech) {
+                    return -1;
+                }
+                if (a.tech > b.tech) {
+                    return 1;
+                }
+                return 0;
+            });
+            console.log(results);
+        } else {
+            results.sort(function(a, b) {
+                if (a.tech > b.tech) {
+                    return -1;
+                }
+                if (a.tech < b.tech) {
+                    return 1;
+                }
+                return 0;
+            });
+            console.log(results);
+        }
+    });
+
     return (
         <Fragment>
             <div className="wrapper">
@@ -76,6 +107,9 @@ export function Technologies() {
                         <div className="items">
                             {results &&
                                 <Fragment>
+                                    <div>
+                                        <button onClick={(e) => setOrder(!order)}></button>
+                                    </div>
                                     <SearchBar setResults={setSearchResult} list={technologies}/>
                                     <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setFilterResults}/>
                                     <div className="item">

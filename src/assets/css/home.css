@@ -1,5 +1,5 @@
 @import url("fonts.css");
-@media screen and (max-width: 2000px) {
+@media screen and (max-width: 1000px) {
 
   .flex-container {
     display: flex;
@@ -306,7 +306,7 @@
 }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 800px) {
   .flex-container {
     display: flex;
     flex-direction: column;

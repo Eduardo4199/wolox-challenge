@@ -5,7 +5,8 @@ import {userService} from "../services/user.service";
 import {technologyService} from "../services/technology.service";
 const CheckboxFilter = lazy(() => import("../components/checkboxFilter"));
 const Technology = lazy(() => import("../components/technologies/Technology"));
-const SearchBar= lazy(() => import("../components/searchBar"));
+const SearchBar = lazy(() => import("../components/searchBar"));
+const Navbar = lazy(() => import("../components/technologies/Navbar"));
 
 export function Technologies() {
     const [technologies, setTechnologies] = useState([]);
@@ -22,9 +23,7 @@ export function Technologies() {
             .then((data) => {
                 setTechnologies(data);
                 setResults(data);
-                if (favourites.length ==! 0) {
-                    setFavourites(favourites);
-                }
+                setFavourites(JSON.parse(localStorage.getItem("favourites")));
             });
     }, []);
 
@@ -48,17 +47,23 @@ export function Technologies() {
         }
     });
 
-    const manageFavourites = useCallback((item) =>{
-        if (favourites.includes(item)) {
+    const manageFavourites = (item) =>{
+        if (favourites.filter((e) => e.tech === item.tech).length > 0) {
+            console.log("Es favorito");
             let result = favourites.filter((element) => element.tech !== item.tech);
             setFavourites(result);
             console.log(result);
+            console.log(favourites);
             localStorage.setItem("favourites", JSON.stringify(result));
         } else {
-            favourites.push(item);
+            console.log("No es favorito");
+            let result = favourites;
+            result.push(item);
+            setFavourites(result);
+            console.log(favourites);
             localStorage.setItem("favourites", JSON.stringify(favourites));
         }
-    }, [favourites]);
+    };
 
     const logout = () => {
         userService.logout();
@@ -98,17 +103,16 @@ export function Technologies() {
     return (
         <Fragment>
             <div className="wrapper">
-                <nav>
-                    <button onClick={() => logout()}>Logout</button>
-                </nav>
-                <h1>Tecnologias</h1>
                 <Suspense fallback={<h2>Cargando...</h2>}>
+                    <Navbar logout={logout} favourites={favourites?.length}/>
+                    {favourites.length}
+                    <h1>Tecnologias</h1>
                     <div className="">
                         <div className="items">
                             {results &&
                                 <Fragment>
                                     <div>
-                                        <button onClick={(e) => setOrder(!order)}></button>
+                                        <button onClick={() => setOrder(!order)}>{order ? "Ascendente" : "Descendente"}</button>
                                     </div>
                                     <SearchBar setResults={setSearchResult} list={technologies}/>
                                     <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setFilterResults}/>
@@ -117,6 +121,9 @@ export function Technologies() {
                                             <Technology item={item} key={index} manageFavourites={manageFavourites}
                                                 isFavourite={favourites.includes(item)}/>
                                         ))}
+                                    </div>
+                                    <div>
+                                        <span>Total : {results.length}</span>
                                     </div>
                                 </Fragment>
                             }

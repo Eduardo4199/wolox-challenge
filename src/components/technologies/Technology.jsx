@@ -10,7 +10,7 @@ export default function Technology(props) {
                     </div>
                     <div className="">{props.item.tech}</div>
                     <input type="checkbox" name="favourite"
-                        onClick={() => props.manageFavourites(props.item)} checked={props.isFavourite}/>
+                        onClick={() => props.manageFavourites(props.item)}/>
                     {console.log(props.isFavourite)}
                 </div>
             </div>

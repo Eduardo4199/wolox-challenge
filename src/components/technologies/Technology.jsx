@@ -1,16 +1,21 @@
 import React, {Fragment, useEffect, useState} from "react";
 
-export default function Technology(props) {
-    const [isFavourite, setIsFavourite] = useState(props.isFavourite);
+export const Technology = React.memo((props) => {
+    const [isFavourite, setIsFavourite] = useState();
 
     useEffect(() => {
-        setIsFavourite(!isFavourite);
-    }, [props.isFavourite]);
+        let result = props.favourite.filter((x) => x.tech === props.item.tech);
+        if (result.length === 1) {
+            setIsFavourite(true);
+        } else {
+            setIsFavourite(false);
+        }
+    }, [props.favourite, props.item !== undefined]);
 
     return (
         <Fragment>
             <div className="card">
-                <div key={props.index}>
+                <div key={props.index} className={isFavourite ? "favourite" : ""}>
                     <div>
                         <span><img src={props.item.logo}/></span>
                     </div>
@@ -21,10 +26,16 @@ export default function Technology(props) {
                     <span>Lenguaje: {props.item.language}</span>
                     <span>Tipo: {props.item.type}</span>
                     <label>Favorito</label>
-                    <input type="checkbox" name="favourite"
-                        onClick={() => props.manageFavourites(props.item)}/>
+                    <button onClick={() => {
+                        props.manageFavourites(props.item);
+                        setIsFavourite(!isFavourite);
+                    }}>{isFavourite ? "Quitar de favoritos" : "Agregar a favoritos"}</button>
                 </div>
             </div>
         </Fragment>
     );
-}
+});
+
+Technology.displayName = "Technology";
+
+export default Technology;

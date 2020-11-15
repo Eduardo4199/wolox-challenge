@@ -26,7 +26,6 @@ export function Technologies() {
                 setResults(data);
                 setFavourites(JSON.parse(localStorage.getItem("favourites")));
                 setFavLength(JSON.parse(localStorage.getItem("favourites")).length);
-                sortResults();
             });
     }, []);
 
@@ -36,16 +35,13 @@ export function Technologies() {
 
     const matchResults = (() =>{
         if (searchResults.length > 0 && filterResults.length === 0) {
-            console.log(searchResults);
             setResults(searchResults);
         }
         if (filterResults.length > 0 && searchResults.length === 0) {
-            console.log(filterResults);
             setResults(filterResults);
         }
         if (searchResults.length > 0 && filterResults.length > 0) {
             const intersection = searchResults.filter((element) => filterResults.includes(element));
-            console.log(intersection);
             setResults(intersection);
         }
     });
@@ -68,18 +64,12 @@ export function Technologies() {
             setFavLength(result.length);
             localStorage.setItem("favourites", JSON.stringify(favourites));
         }
-        sortResults();
     }, [favourites]);
 
     const logout = () => {
-        console.log("LOGOUT");
         userService.logout();
         history.push("/Home");
     };
-
-    useEffect(() => {
-        sortResults();
-    }, [order]);
 
     const sortResults = useCallback(() => {
         if (order) {
@@ -103,15 +93,8 @@ export function Technologies() {
                 return 0;
             });
         }
+        console.log("Ordene resultados");
     });
-
-    const isFavTech = useCallback((item) => {
-        if (favourites.includes(item)) {
-            return true;
-        } else {
-            return false;
-        }
-    }, []);
 
     return (
         <Fragment>
@@ -121,21 +104,26 @@ export function Technologies() {
                     <h1>Tecnologias</h1>
                     <div>
                         <div>
-                            <SearchBar setResults={setSearchResult} list={technologies}/>
-                            <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setFilterResults}/>
-                            <div>
-                                <span>Orden:</span>
-                                <button onClick={() => setOrder(!order)}>{order ? "Ascendente" : "Descendente"}</button>
+                            <div className="filters">
+                                <SearchBar setResults={setSearchResult} list={technologies}/>
+                                <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setFilterResults}/>
+                                <div>
+                                    <span>Orden:</span>
+                                    <button onClick={() => {
+                                        setOrder(!order);
+                                        sortResults();
+                                    }}>{order ? "Ascendente" : "Descendente"}</button>
+                                </div>
                             </div>
                             {results &&
                                 <Fragment>
                                     <div className="items">
                                         {results.map((item, index) => (
                                             <Technology item={item} key={index} manageFavourites={manageFavourites}
-                                                isFavourite={isFavTech(item)}/>
+                                                favourite={favourites}/>
                                         ))}
                                     </div>
-                                    <div>
+                                    <div className="total">
                                         <span>Total : {results.length}</span>
                                     </div>
                                 </Fragment>

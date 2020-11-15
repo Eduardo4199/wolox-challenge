@@ -26,7 +26,6 @@ export function Technologies() {
                 setResults(data);
                 setFavourites(JSON.parse(localStorage.getItem("favourites")));
                 setFavLength(JSON.parse(localStorage.getItem("favourites")).length);
-                sortResults();
             });
     }, []);
 
@@ -36,16 +35,13 @@ export function Technologies() {
 
     const matchResults = (() =>{
         if (searchResults.length > 0 && filterResults.length === 0) {
-            console.log(searchResults);
             setResults(searchResults);
         }
         if (filterResults.length > 0 && searchResults.length === 0) {
-            console.log(filterResults);
             setResults(filterResults);
         }
         if (searchResults.length > 0 && filterResults.length > 0) {
             const intersection = searchResults.filter((element) => filterResults.includes(element));
-            console.log(intersection);
             setResults(intersection);
         }
     });
@@ -68,11 +64,9 @@ export function Technologies() {
             setFavLength(result.length);
             localStorage.setItem("favourites", JSON.stringify(favourites));
         }
-        sortResults();
     }, [favourites]);
 
     const logout = () => {
-        console.log("LOGOUT");
         userService.logout();
         history.push("/Home");
     };
@@ -103,6 +97,7 @@ export function Technologies() {
                 return 0;
             });
         }
+        console.log("Ordene resultados");
     });
 
     return (

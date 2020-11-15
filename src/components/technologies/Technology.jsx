@@ -1,18 +1,13 @@
 import React, {Fragment, useEffect, useState} from "react";
 
-export default function Technology(props) {
-    const [isFavourite, setIsFavourite] = useState(props.isFavourite);
+export const Technology = React.memo((props) => {
+    const [isFavourite, setIsFavourite] = useState();
 
     useEffect(() => {
         let result = props.favourite.filter((x) => x.tech === props.item.tech);
-        console.log(props.item.tech);
-        console.log(props.favourite);
-        console.log(result);
         if (result.length === 1) {
-            console.log("true " + props.item.tech);
             setIsFavourite(true);
         } else {
-            console.log("false " + props.item.tech);
             setIsFavourite(false);
         }
     }, [props.favourite, props.item !== undefined]);
@@ -31,10 +26,16 @@ export default function Technology(props) {
                     <span>Lenguaje: {props.item.language}</span>
                     <span>Tipo: {props.item.type}</span>
                     <label>Favorito</label>
-                    <input type="checkbox" name="favourite"
-                        onClick={() => props.manageFavourites(props.item)}/>
+                    <button onClick={() => {
+                        props.manageFavourites(props.item);
+                        setIsFavourite(!isFavourite);
+                    }}>{isFavourite ? "Quitar de favoritos" : "Agregar a favoritos"}</button>
                 </div>
             </div>
         </Fragment>
     );
-}
+});
+
+Technology.displayName = "Technology";
+
+export default Technology;

@@ -1,7 +1,8 @@
-import React, {Fragment, useEffect} from "react";
+import React, {Fragment, useEffect, useContext} from "react";
 import {useHistory} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import "../assets/css/login.css";
+import {UserContext} from "../context/user.context";
 import {userService} from "../services/user.service";
 /**
  * @return {string} app view.
@@ -10,10 +11,12 @@ import {userService} from "../services/user.service";
 export function Login(props) {
     const {register, handleSubmit, errors} = useForm();
     const history = useHistory();
+    const {setUser} = useContext(UserContext);
 
     const onSubmit = (data) => {
         let result = userService.login(data);
         if (result) {
+            setUser(data);
             history.push("/Technologies");
         }
     };

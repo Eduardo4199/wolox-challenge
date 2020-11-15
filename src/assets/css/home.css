@@ -168,6 +168,8 @@
     background-size: cover;
     margin: 4%;
     align-content: center;
+    display: block;
+    text-align: center;
   }
 
   .Bg4TextA{
@@ -192,10 +194,14 @@
   .WoloxHead{
     content: url("../logo_full_color.svg");
     height: 30%;
+    float: right;
   }
 
   .WoloxFooter{
     content: url("../Ic_Wolox_Footer.svg");
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .CircledButtonTwitter {

@@ -18,7 +18,7 @@ export function Home(props) {
                             <div className="HeaderItem">
                                 <span className="Bg1Text">Beneficios</span>
                             </div>
-                            {localStorage.getItem("loggedUser")&&
+                            {!localStorage.getItem("loggedUser")&&
                             <Fragment>
                                 <div className="HeaderItem">
                                     <Link to="/Register" className="HeaderAnchor"><span className="Bg1Text">Registrarse</span></Link>

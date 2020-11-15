@@ -3,6 +3,10 @@ import {useForm, Controller} from "react-hook-form";
 import {useHistory} from "react-router-dom";
 import {registerService} from "../services/register.service";
 import "../assets/css/register.css";
+import {regEx} from "../config";
+//  const ErrorForm = lazy(() => import("../components/errorForm"));
+import {ErrorForm} from "../components/errorForm";
+
 
 export function Register(props) {
     const [countries, setCountries] = useState([]);
@@ -11,11 +15,11 @@ export function Register(props) {
     const history = useHistory();
     const {register, handleSubmit, control, errors, getValues} = useForm({mode: "onBlur"});
     const onSubmit = (data) => {
-        registerService.registerUser(data).then((data) => {
+        /* registerService.registerUser(data).then((data) => {
             if (data) {
                 history.push("/Technologies");
             }
-        });
+        });*/
         console.log(data);
         console.log(selectedCountry);
     };
@@ -39,9 +43,11 @@ export function Register(props) {
                 <div className="registerForm">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <label>Nombre</label>
-                        <input type="text" name="name" ref={register({required: true})} />
+                        <input type="text" name="name" ref={register({required: true, pattern: regEx.letters, minLength: 1, maxLength: 100})} />
+                        {errors.name && <ErrorForm field={errors.name} max={255} />}
                         <label>Apellido</label>
-                        <input type="text" name="last_name" ref={register({required: true})} />
+                        <input type="text" name="last_name" ref={register({required: true, pattern: regEx.letters, minLength: 1, maxLength: 100})} />
+                        {errors.last_name && <ErrorForm field={errors.last_name} max={255} />}
                         <label>Pais</label>
                         {countries.countries && (
                             <select
@@ -60,7 +66,7 @@ export function Register(props) {
                             </select>
                         )}
                         {errors.country && (
-                            <p style={{color: "red"}}> {errors.country.message}</p>
+                            <p> {errors.country.message}</p>
                         )}
                         <label>Departamento/Provincia</label>
                         {states && (
@@ -79,28 +85,36 @@ export function Register(props) {
                             </select>
                         )}
                         {errors.state && (
-                            <p style={{color: "red"}}> {errors.state.message}</p>
+                            <p>{errors.state.message}</p>
                         )}
                         <label>Email</label>
-                        <input type="text"name="email" ref={register({required: true})} />
+                        <input type="text"name="email" ref={register({required: true, pattern: regEx.email, minLength: 10, maxLength: 30})} />
+                        {errors.email && <ErrorForm field={errors.email} max={255} />}
                         <label>Telefono</label>
-                        <input name="phone" ref={register({required: true})} type="number" pattern="[0-9]"/>
+                        <input name="phone" ref={register({required: true, pattern: regEx.phone, minLength: 10, maxLength: 20})} type="number"/>
+                        {errors.phone && <ErrorForm field={errors.phone} min={10} max={20} />}
                         <label>Password</label>
                         <Controller
                             name="password"
                             control={control}
                             rules={{
                                 required: "Debes incluir una contraseña",
+                                pattern: regEx.password,
+                                minLength: 6,
+                                maxLength: 255,
                             }}
                             as={<input name="password" ref={register({required: true})} type="password"/>}
                         />
-                        {errors.password && <p>{errors.password.message}</p>}
+                        {errors.password && <ErrorForm field={errors.password} min={6} max={255} />}
                         <label>Repeat password</label>
                         <Controller
                             name="password_repeat"
                             control={control}
                             rules={{
                                 required: "Debes incluir una contraseña",
+                                pattern: regEx.password,
+                                minLength: 6,
+                                maxLength: 255,
                                 validate: (value) => {
                                     if (value === getValues()["password"]) {
                                         return true;
@@ -113,7 +127,7 @@ export function Register(props) {
                                 <input name="repeat_password" ref={register({required: true})} type="password"/>
                             }
                         />
-                        {errors.password_repeat && <p> {errors.password_repeat.message}</p>}
+                        {errors.password_repeat && <ErrorForm field={errors.password_repeat} min={6} max={255} />}
                         <input
                             ref={register({
                                 required: "Debe aceptar las condiciones y terminos",

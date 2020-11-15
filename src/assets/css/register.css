@@ -104,6 +104,10 @@
     .registerForm input[type = "submit"]:hover{
         background: #2ecc71;
     }
+
+    .registerForm input[type = "submit"]:disabled{
+        background: #4b554f;
+    }
 }
 @media screen and (max-width: 500px) {
     body{

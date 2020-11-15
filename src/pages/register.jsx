@@ -66,7 +66,7 @@ export function Register(props) {
                             </select>
                         )}
                         {errors.country && (
-                            <p> {errors.country.message}</p>
+                            <ErrorForm field={errors.country} max={255} />
                         )}
                         <label>Departamento/Provincia</label>
                         {states && (
@@ -85,7 +85,7 @@ export function Register(props) {
                             </select>
                         )}
                         {errors.state && (
-                            <p>{errors.state.message}</p>
+                            <ErrorForm field={errors.state} max={255} />
                         )}
                         <label>Email</label>
                         <input type="text"name="email" ref={register({required: true, pattern: regEx.email, minLength: 10, maxLength: 30})} />

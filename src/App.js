@@ -21,8 +21,8 @@ function App() {
                         <Route exact path="/Login" component={Pages.Login}/>
                         <PrivateRoute exact path="/Technologies" component={Pages.Technologies}/>
                     </UserContext.Provider>
-                    <Redirect from="/" to="/Home" />
                 </Switch>
+                <Redirect from="/" to="/Home" />
             </Router>
         </BrowserRouter>
     );

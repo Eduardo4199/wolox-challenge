@@ -71,10 +71,6 @@ export function Technologies() {
         history.push("/Home");
     };
 
-    useEffect(() => {
-        sortResults();
-    }, [order]);
-
     const sortResults = useCallback(() => {
         if (order) {
             results.sort(function(a, b) {
@@ -113,7 +109,10 @@ export function Technologies() {
                                 <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setFilterResults}/>
                                 <div>
                                     <span>Orden:</span>
-                                    <button onClick={() => setOrder(!order)}>{order ? "Ascendente" : "Descendente"}</button>
+                                    <button onClick={() => {
+                                        setOrder(!order);
+                                        sortResults();
+                                    }}>{order ? "Ascendente" : "Descendente"}</button>
                                 </div>
                             </div>
                             {results &&

@@ -121,11 +121,13 @@ export function Technologies() {
                     <h1>Tecnologias</h1>
                     <div>
                         <div>
-                            <SearchBar setResults={setSearchResult} list={technologies}/>
-                            <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setFilterResults}/>
-                            <div>
-                                <span>Orden:</span>
-                                <button onClick={() => setOrder(!order)}>{order ? "Ascendente" : "Descendente"}</button>
+                            <div className="filters">
+                                <SearchBar setResults={setSearchResult} list={technologies}/>
+                                <CheckboxFilter filters={checkboxFilters} techs={technologies} setResults={setFilterResults}/>
+                                <div>
+                                    <span>Orden:</span>
+                                    <button onClick={() => setOrder(!order)}>{order ? "Ascendente" : "Descendente"}</button>
+                                </div>
                             </div>
                             {results &&
                                 <Fragment>
@@ -135,7 +137,7 @@ export function Technologies() {
                                                 isFavourite={isFavTech(item)}/>
                                         ))}
                                     </div>
-                                    <div>
+                                    <div className="total">
                                         <span>Total : {results.length}</span>
                                     </div>
                                 </Fragment>

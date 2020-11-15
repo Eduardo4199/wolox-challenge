@@ -105,14 +105,6 @@ export function Technologies() {
         }
     });
 
-    const isFavTech = useCallback((item) => {
-        if (favourites.includes(item)) {
-            return true;
-        } else {
-            return false;
-        }
-    }, []);
-
     return (
         <Fragment>
             <div className="wrapper">
@@ -134,7 +126,7 @@ export function Technologies() {
                                     <div className="items">
                                         {results.map((item, index) => (
                                             <Technology item={item} key={index} manageFavourites={manageFavourites}
-                                                isFavourite={isFavTech(item)}/>
+                                                favourite={favourites}/>
                                         ))}
                                     </div>
                                     <div className="total">

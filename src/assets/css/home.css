@@ -149,6 +149,12 @@
     background-color: white;
   }
 
+
+  .Background3 h4{
+    display: block;
+    text-align: center;
+  }
+
   .Background3 div{
     display: flex;
     align-items: center;

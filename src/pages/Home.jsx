@@ -123,9 +123,9 @@ export function Home(props) {
                             <span className="Bg4TextC">Conocer mas</span>
                         </button>
                     </a>
-                </div>
-                <div>
-                    <img className="WoloxFooter"/>
+                    <div>
+                        <img className="WoloxFooter"/>
+                    </div>
                 </div>
             </div>
         </Fragment>

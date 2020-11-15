@@ -1,7 +1,7 @@
 import React, {Fragment} from "react";
 "../assets/css/technology.css";
 
-export default function Navbar(props) {
+export const Navbar= React.memo((props) => {
     return (
         <Fragment>
             <nav className="topnav">
@@ -12,4 +12,8 @@ export default function Navbar(props) {
             </nav>
         </Fragment>
     );
-}
+});
+
+Navbar.displayName = "Navbar";
+
+export default Navbar;

@@ -9,13 +9,15 @@ export function Register(props) {
     const [states, setStates] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState();
     const history = useHistory();
-    const {register, handleSubmit, control, errors, getValues} = useForm();
+    const {register, handleSubmit, control, errors, getValues} = useForm({mode: "onBlur"});
     const onSubmit = (data) => {
-        registerService.registerUser(data).then((data) =>{
+        registerService.registerUser(data).then((data) => {
             if (data) {
                 history.push("/Technologies");
             }
         });
+        console.log(data);
+        console.log(selectedCountry);
     };
 
     useEffect(() => {
@@ -28,6 +30,7 @@ export function Register(props) {
 
     useEffect(() => {
         setStates(registerService.getStates(selectedCountry));
+        console.log(selectedCountry);
     }, [selectedCountry]);
 
     return (
@@ -41,32 +44,42 @@ export function Register(props) {
                         <input type="text" name="last_name" ref={register({required: true})} />
                         <label>Pais</label>
                         {countries.countries && (
-                            <Controller
-                                as={
-                                    <select onChange={(e) => setSelectedCountry(e.target.value)}>
-                                        <option>Seleccione un pais</option>
-                                        {countries.countries.map((country, index) => (
-                                            <option key={index} value={country}>
-                                                {country}
-                                            </option>
-                                        ))}
-                                    </select>
-                                }
-                                control={control} name="country" />
+                            <select
+                                onChange={(e) => setSelectedCountry(e.target.value)}
+                                ref={register({
+                                    required: "Seleccione un pais",
+                                })}
+                                name="country"
+                            >
+                                <option value="">Seleccione un pais</option>
+                                {countries.countries.map((country, index) => (
+                                    <option key={index} value={country}>
+                                        {country}
+                                    </option>
+                                ))}
+                            </select>
+                        )}
+                        {errors.country && (
+                            <p style={{color: "red"}}> {errors.country.message}</p>
                         )}
                         <label>Departamento/Provincia</label>
                         {states && (
-                            <Controller
-                                as={
-                                    <select>
-                                        {states.map((state, index) => (
-                                            <option key={index} value={state.state}>
-                                                {state.state}
-                                            </option>
-                                        ))}
-                                    </select>
-                                }
-                                control={control} name="state"/>
+                            <select
+                                ref={register({
+                                    required: "Seleccione un estado",
+                                })}
+                                name="state"
+                            >
+                                <option value="">Seleccione un estado</option>
+                                {states.map((state, index) => (
+                                    <option key={index} value={state.state}>
+                                        {state.state}
+                                    </option>
+                                ))}
+                            </select>
+                        )}
+                        {errors.state && (
+                            <p style={{color: "red"}}> {errors.state.message}</p>
                         )}
                         <label>Email</label>
                         <input type="text"name="email" ref={register({required: true})} />

@@ -13,7 +13,7 @@ export function Register(props) {
     const [states, setStates] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState();
     const history = useHistory();
-    const {register, handleSubmit, control, errors, getValues} = useForm({mode: "onBlur"});
+    const {register, handleSubmit, control, errors, getValues, formState} = useForm({mode: "onChange"});
     const onSubmit = (data) => {
         /* registerService.registerUser(data).then((data) => {
             if (data) {
@@ -137,7 +137,7 @@ export function Register(props) {
                         />
                         {errors.termscond && <label className="error">{errors.termscond.message}</label>}
                         <label>Terminos y condiciones</label>
-                        <input type="submit"></input>
+                        <input type="submit"disabled={!formState.isValid}></input>
                     </form>
                 </div>
             </div>

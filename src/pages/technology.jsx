@@ -72,6 +72,7 @@ export function Technologies() {
     }, [favourites]);
 
     const logout = () => {
+        console.log("LOGOUT");
         userService.logout();
         history.push("/Home");
     };
@@ -105,12 +106,9 @@ export function Technologies() {
     });
 
     const isFavTech = useCallback((item) => {
-        console.log(favourites);
         if (favourites.includes(item)) {
-            console.log("Item incluido");
             return true;
         } else {
-            console.log("Item no incluido");
             return false;
         }
     }, []);

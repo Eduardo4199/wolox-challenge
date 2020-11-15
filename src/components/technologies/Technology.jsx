@@ -10,7 +10,7 @@ export default function Technology(props) {
     return (
         <Fragment>
             <div className="card">
-                <div className={isFavourite ? "" : "favourite"} key={props.index}>
+                <div key={props.index}>
                     <div>
                         <span><img src={props.item.logo}/></span>
                     </div>

@@ -6,7 +6,7 @@ export default function Navbar(props) {
         <Fragment>
             <nav className="topnav">
                 <div>
-                    <a onClick={() => props.logout}>Logout</a>
+                    <a><button onClick={() => props.logout()}>Logout</button></a>
                     <span>{props.favourites}</span>
                 </div>
             </nav>

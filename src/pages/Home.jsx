@@ -16,16 +16,20 @@ export function Home(props) {
                         </div>
                         <div className="HeaderPush">
                             <div className="HeaderItem">
-                                <Link to="/Register" className="HeaderAnchor"><span className="Bg1Text">Registrarse</span></Link>
-                            </div>
-                            <div className="HeaderItem">
                                 <span className="Bg1Text">Beneficios</span>
                             </div>
-                            <div className="HeaderItem">
-                                <Link to="/Login" className="HeaderAnchor">
-                                    <button className="CircledButtonLogin"><span className="Bg1Text">Login</span></button>
-                                </Link>
-                            </div>
+                            {localStorage.getItem("loggedUser")&&
+                            <Fragment>
+                                <div className="HeaderItem">
+                                    <Link to="/Register" className="HeaderAnchor"><span className="Bg1Text">Registrarse</span></Link>
+                                </div>
+                                <div className="HeaderItem">
+                                    <Link to="/Login" className="HeaderAnchor">
+                                        <button className="CircledButtonLogin"><span className="Bg1Text">Login</span></button>
+                                    </Link>
+                                </div>
+                            </Fragment>
+                            }
                         </div>
                     </div>
                     <div className="TopPage">
